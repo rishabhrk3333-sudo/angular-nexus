@@ -59,4 +59,8 @@ export class Dashboard {
       color: 'from-pink-500 to-rose-500',
     },
   ];
+
+  redirectTo(pageName:string){
+
+  }
 }

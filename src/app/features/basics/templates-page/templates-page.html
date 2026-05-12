@@ -1,1 +1,402 @@
-<p>templates-page works!</p>
+<div class="mx-auto max-w-7xl space-y-10 pb-20">
+
+  <!-- HERO -->
+  <section
+    class="relative overflow-hidden rounded-[32px]
+           border border-white/10
+           bg-gradient-to-br from-indigo-950
+           via-slate-900 to-cyan-950
+           p-10 shadow-2xl"
+  >
+
+    <div
+      class="absolute inset-0
+             bg-[radial-gradient(circle_at_top_right,rgba(99,102,241,0.18),transparent_30%)]"
+    ></div>
+
+    <div class="relative z-10">
+
+      <div
+        class="inline-flex items-center gap-2
+               rounded-full border border-cyan-400/20
+               bg-cyan-400/10 px-4 py-2
+               text-sm font-medium text-cyan-300"
+      >
+        <span class="h-2 w-2 rounded-full bg-cyan-400"></span>
+        {{ hero.badge }}
+      </div>
+
+      <h1
+        class="mt-6 text-5xl font-black
+               leading-tight text-white md:text-6xl"
+      >
+        {{ hero.title }}
+      </h1>
+
+      <p
+        class="mt-6 max-w-4xl text-lg
+               leading-relaxed text-slate-300"
+      >
+        {{ hero.subtitle }}
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- WHAT IS TEMPLATE -->
+  <section
+    class="rounded-[28px] border border-white/10
+           bg-white/5 p-8 backdrop-blur-xl"
+  >
+
+    <h2 class="text-4xl font-black text-white">
+      {{ introduction.title }}
+    </h2>
+
+    <p
+      class="mt-6 whitespace-pre-line
+             text-lg leading-9 text-slate-300"
+    >
+      {{ introduction.description }}
+    </p>
+
+  </section>
+
+  <!-- FEATURES -->
+  <section
+    class="rounded-[28px] border border-white/10
+           bg-slate-950/80 p-8"
+  >
+
+    <div class="mb-10">
+
+      <h2 class="text-4xl font-black text-white">
+        Template Features
+      </h2>
+
+      <p class="mt-3 text-slate-400">
+        Why Angular templates are powerful.
+      </p>
+
+    </div>
+
+    <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+
+      @for (feature of features; track feature.title) {
+
+        <div
+          class="rounded-3xl border border-white/10
+                 bg-white/[0.03] p-6"
+        >
+
+          <div class="text-5xl">
+            {{ feature.icon }}
+          </div>
+
+          <h3
+            class="mt-5 text-2xl font-bold text-white"
+          >
+            {{ feature.title }}
+          </h3>
+
+          <p
+            class="mt-4 leading-8 text-slate-300"
+          >
+            {{ feature.description }}
+          </p>
+
+        </div>
+
+      }
+
+    </div>
+
+  </section>
+
+  <!-- TEMPLATE TYPES -->
+  <section
+    class="rounded-[28px] border border-white/10
+           bg-gradient-to-br from-slate-950
+           via-indigo-950 to-slate-900 p-8"
+  >
+
+    <div class="mb-10">
+
+      <h2 class="text-4xl font-black text-white">
+        Types of Templates
+      </h2>
+
+      <p class="mt-3 text-slate-400">
+        Angular supports multiple template approaches.
+      </p>
+
+    </div>
+
+    <div class="space-y-8">
+
+      @for (template of templateTypes; track template.title) {
+
+        <div
+          class="rounded-3xl border border-white/10
+                 bg-white/[0.03] p-8"
+        >
+
+          <div
+            class="flex flex-col gap-6
+                   xl:flex-row xl:items-start
+                   xl:justify-between"
+          >
+
+            <div class="max-w-2xl">
+
+              <div class="flex items-center gap-4">
+
+                <div class="text-5xl">
+                  {{ template.icon }}
+                </div>
+
+                <h3
+                  class="text-3xl font-bold text-white"
+                >
+                  {{ template.title }}
+                </h3>
+
+              </div>
+
+              <p
+                class="mt-6 text-lg leading-9
+                       text-slate-300"
+              >
+                {{ template.description }}
+              </p>
+
+              <div class="mt-8">
+
+                <h4
+                  class="text-xl font-bold text-cyan-300"
+                >
+                  Advantages
+                </h4>
+
+                <ul class="mt-4 space-y-3">
+
+                  @for (
+                    advantage of template.advantages;
+                    track advantage
+                  ) {
+
+                    <li
+                      class="flex items-center gap-3
+                             text-slate-300"
+                    >
+                      <span class="text-emerald-400">
+                        ✔️
+                      </span>
+
+                      {{ advantage }}
+                    </li>
+
+                  }
+
+                </ul>
+
+              </div>
+
+            </div>
+
+            <div class="w-full xl:max-w-2xl">
+
+              <pre
+                class="overflow-x-auto rounded-2xl
+                       border border-white/10
+                       bg-[#111827] p-6 text-sm
+                       leading-8 text-slate-300"
+              ><code>{{ template.code }}</code></pre>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      }
+
+    </div>
+
+  </section>
+
+  <!-- LINKED TEMPLATE HTML -->
+  <section
+    class="rounded-[28px] border border-pink-400/20
+           bg-pink-500/[0.04] p-8"
+  >
+
+    <div class="mb-8">
+
+      <h2
+        class="text-3xl font-bold text-pink-300"
+      >
+        Linked Template HTML Example
+      </h2>
+
+    </div>
+
+    <pre
+      class="overflow-x-auto rounded-2xl
+             border border-white/10
+             bg-[#111827] p-6 text-sm
+             leading-8 text-slate-300"
+    ><code>{{ linkedHtmlExample }}</code></pre>
+
+  </section>
+
+  <!-- TEMPLATE SYNTAX -->
+  <section
+    class="rounded-[28px] border border-white/10
+           bg-white/5 p-8"
+  >
+
+    <div class="mb-10">
+
+      <h2 class="text-4xl font-black text-white">
+        Template Syntax
+      </h2>
+
+      <p class="mt-3 text-slate-400">
+        Common Angular template features.
+      </p>
+
+    </div>
+
+    <div class="grid gap-6 md:grid-cols-2">
+
+      @for (
+        item of templateSyntaxExamples;
+        track item.title
+      ) {
+
+        <div
+          class="rounded-3xl border border-white/10
+                 bg-white/[0.03] p-6"
+        >
+
+          <h3
+            class="text-2xl font-bold text-cyan-300"
+          >
+            {{ item.title }}
+          </h3>
+
+          <div
+            class="mt-5 rounded-2xl bg-black/30
+                   p-4 font-mono text-sm
+                   text-emerald-300"
+          >
+            {{ item.syntax }}
+          </div>
+
+          <p
+            class="mt-5 leading-8 text-slate-300"
+          >
+            {{ item.description }}
+          </p>
+
+        </div>
+
+      }
+
+    </div>
+
+  </section>
+
+  <!-- BEST PRACTICES -->
+  <section
+    class="rounded-[28px] border border-yellow-400/10
+           bg-yellow-500/[0.03] p-8"
+  >
+
+    <div class="mb-8">
+
+      <h2 class="text-3xl font-bold text-white">
+        Best Practices
+      </h2>
+
+    </div>
+
+    <div class="grid gap-4 md:grid-cols-2">
+
+      @for (
+        practice of bestPractices;
+        track practice
+      ) {
+
+        <div
+          class="rounded-2xl border
+                 border-yellow-400/20
+                 bg-yellow-500/[0.04] p-5"
+        >
+
+          <p class="text-lg text-slate-300">
+            ✔️ {{ practice }}
+          </p>
+
+        </div>
+
+      }
+
+    </div>
+
+  </section>
+
+  <!-- INTERVIEW QUESTIONS -->
+  <section
+    class="rounded-[28px] border border-white/10
+           bg-gradient-to-br from-slate-950
+           via-cyan-950 to-slate-900 p-8"
+  >
+
+    <div class="mb-10">
+
+      <h2 class="text-4xl font-black text-white">
+        Interview Questions
+      </h2>
+
+      <p class="mt-3 text-slate-400">
+        Frequently asked Angular Template questions.
+      </p>
+
+    </div>
+
+    <div class="space-y-6">
+
+      @for (
+        item of interviewQuestions;
+        track item.question
+      ) {
+
+        <div
+          class="rounded-3xl border border-white/10
+                 bg-white/[0.03] p-6"
+        >
+
+          <h3
+            class="text-xl font-bold text-cyan-300"
+          >
+            {{ item.question }}
+          </h3>
+
+          <p
+            class="mt-4 leading-8 text-slate-300"
+          >
+            {{ item.answer }}
+          </p>
+
+        </div>
+
+      }
+
+    </div>
+
+  </section>
+
+</div>

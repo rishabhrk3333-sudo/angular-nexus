@@ -1,1 +1,542 @@
-<p>forms-page works!</p>
+<div class="mx-auto max-w-7xl space-y-10 pb-20">
+
+    <!-- HERO -->
+    <section class="relative overflow-hidden rounded-[32px]
+           border border-white/10
+           bg-gradient-to-br from-violet-950
+           via-slate-900 to-cyan-950
+           p-10 shadow-2xl">
+
+        <div class="absolute inset-0
+             bg-[radial-gradient(circle_at_top_right,rgba(139,92,246,0.18),transparent_30%)]"></div>
+
+        <div class="relative z-10">
+
+            <div class="inline-flex items-center gap-2
+               rounded-full border border-violet-400/20
+               bg-violet-400/10 px-4 py-2
+               text-sm font-medium text-violet-300">
+                <span class="h-2 w-2 rounded-full bg-violet-400"></span>
+                Angular Forms
+            </div>
+
+            <h1 class="mt-6 text-5xl font-black
+               leading-tight text-white md:text-6xl">
+                Forms in Angular
+            </h1>
+
+            <p class="mt-6 max-w-4xl text-lg
+               leading-relaxed text-slate-300">
+                Angular forms are used to collect, validate,
+                and manage user input efficiently.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- INTRODUCTION -->
+    <section class="rounded-[28px]
+           border border-white/10
+           bg-white/5 p-8">
+
+        <h2 class="text-4xl font-black text-white">
+            What are Forms in Angular?
+        </h2>
+
+        <p class="mt-6 whitespace-pre-line
+             text-lg leading-9 text-slate-300">
+            Angular provides two major approaches for handling forms:
+
+            1. Template-Driven Forms
+            2. Reactive Forms
+
+            Template-driven forms are simpler and ideal for smaller forms,
+            while Reactive Forms are scalable and powerful for enterprise applications.
+        </p>
+
+    </section>
+
+    <!-- TABS -->
+    <section class="rounded-[28px]
+           border border-white/10
+           bg-slate-950/80 p-4">
+
+        <div class="flex flex-wrap gap-4">
+
+            @for (tab of tabs; track tab.id) {
+
+            <button (click)="activeTab.set(tab.id)" class="rounded-2xl px-6 py-4
+                 text-sm font-semibold
+                 transition-all duration-300" [class.bg-violet-500]="activeTab() === tab.id"
+                [class.text-white]="activeTab() === tab.id" [class.bg-white/5]="activeTab() !== tab.id"
+                [class.text-slate-300]="activeTab() !== tab.id">
+                {{ tab.label }}
+            </button>
+
+            }
+
+        </div>
+
+    </section>
+
+    <!-- ================================================= -->
+    <!-- TEMPLATE DRIVEN -->
+    <!-- ================================================= -->
+
+    @if (activeTab() === 'template') {
+
+    <section class="rounded-[28px]
+             border border-emerald-400/20
+             bg-emerald-500/[0.04] p-8">
+
+        <div class="mb-10">
+
+            <h2 class="text-4xl font-black text-emerald-300">
+                Template-Driven Forms
+            </h2>
+
+            <p class="mt-4 text-lg leading-8 text-slate-300">
+                Template-driven forms are simple,
+                declarative, and mostly handled in HTML.
+            </p>
+
+        </div>
+
+        <!-- FORM -->
+        <form #templateForm="ngForm" (ngSubmit)="submitTemplateForm()" class="grid gap-6">
+
+            <div>
+
+                <label class="mb-3 block text-sm
+                   font-medium text-white">
+                    Full Name
+                </label>
+
+                <input type="text" name="name" required [(ngModel)]="templateUser.name" class="w-full rounded-2xl
+                   border border-white/10
+                   bg-black/20 px-5 py-4
+                   text-white outline-none" />
+
+            </div>
+
+            <div>
+
+                <label class="mb-3 block text-sm
+                   font-medium text-white">
+                    Email
+                </label>
+
+                <input type="email" name="email" required [(ngModel)]="templateUser.email" class="w-full rounded-2xl
+                   border border-white/10
+                   bg-black/20 px-5 py-4
+                   text-white outline-none" />
+
+            </div>
+
+            <div>
+
+                <label class="mb-3 block text-sm
+                   font-medium text-white">
+                    Role
+                </label>
+
+                <select name="role" [(ngModel)]="templateUser.role" class="w-full rounded-2xl
+                   border border-white/10
+                   bg-black/20 px-5 py-4
+                   text-white outline-none">
+                    <option value="">
+                        Select Role
+                    </option>
+
+                    <option value="Developer">
+                        Developer
+                    </option>
+
+                    <option value="Admin">
+                        Admin
+                    </option>
+
+                </select>
+
+            </div>
+
+            <button type="submit" [disabled]="templateForm.invalid" class="rounded-2xl bg-emerald-500
+                 px-6 py-4 font-semibold
+                 text-white transition-all
+                 hover:scale-[1.02]
+                 disabled:opacity-50">
+                Submit Form
+            </button>
+
+        </form>
+
+    </section>
+
+    }
+
+    <!-- ================================================= -->
+    <!-- REACTIVE FORM -->
+    <!-- ================================================= -->
+
+    @if (activeTab() === 'reactive') {
+
+    <section class="rounded-[28px]
+             border border-cyan-400/20
+             bg-cyan-500/[0.04] p-8">
+
+        <div class="mb-10">
+
+            <h2 class="text-4xl font-black text-cyan-300">
+                Reactive Forms
+            </h2>
+
+            <p class="mt-4 text-lg leading-8 text-slate-300">
+                Reactive forms are scalable,
+                testable, and ideal for enterprise applications.
+            </p>
+
+        </div>
+
+        <form [formGroup]="registrationForm" (ngSubmit)="submitReactiveForm()" class="space-y-6">
+
+            <!-- FULL NAME -->
+            <div>
+
+                <label class="mb-3 block text-white">
+                    Full Name
+                </label>
+
+                <input type="text" formControlName="fullName" class="w-full rounded-2xl
+                   border border-white/10
+                   bg-black/20 px-5 py-4
+                   text-white" />
+
+            </div>
+
+            <!-- EMAIL -->
+            <div>
+
+                <label class="mb-3 block text-white">
+                    Email
+                </label>
+
+                <input type="email" formControlName="email" class="w-full rounded-2xl
+                   border border-white/10
+                   bg-black/20 px-5 py-4
+                   text-white" />
+
+            </div>
+
+            <!-- PASSWORD -->
+            <div class="grid gap-6 md:grid-cols-2">
+
+                <div>
+
+                    <label class="mb-3 block text-white">
+                        Password
+                    </label>
+
+                    <input type="password" formControlName="password" class="w-full rounded-2xl
+                     border border-white/10
+                     bg-black/20 px-5 py-4
+                     text-white" />
+
+                </div>
+
+                <div>
+
+                    <label class="mb-3 block text-white">
+                        Confirm Password
+                    </label>
+
+                    <input type="password" formControlName="confirmPassword" class="w-full rounded-2xl
+                     border border-white/10
+                     bg-black/20 px-5 py-4
+                     text-white" />
+
+                </div>
+
+            </div>
+
+            <!-- ROLE -->
+            <div>
+
+                <label class="mb-3 block text-white">
+                    Role
+                </label>
+
+                <select formControlName="role" class="w-full rounded-2xl
+                   border border-white/10
+                   bg-black/20 px-5 py-4
+                   text-white">
+
+                    <option value="">
+                        Select Role
+                    </option>
+
+                    <option value="Developer">
+                        Developer
+                    </option>
+
+                    <option value="Company">
+                        Company
+                    </option>
+
+                </select>
+
+            </div>
+
+            <!-- COMPANY NAME -->
+            @if (
+            registrationForm.get('role')?.value
+            === 'Company'
+            ) {
+
+            <div>
+
+                <label class="mb-3 block text-white">
+                    Company Name
+                </label>
+
+                <input type="text" formControlName="companyName" class="w-full rounded-2xl
+                     border border-white/10
+                     bg-black/20 px-5 py-4
+                     text-white" />
+
+            </div>
+
+            }
+
+            <!-- ADDRESS -->
+            <div formGroupName="address" class="rounded-3xl
+                 border border-white/10
+                 bg-black/20 p-6">
+
+                <h3 class="mb-6 text-2xl
+                   font-bold text-white">
+                    Address
+                </h3>
+
+                <div class="grid gap-5 md:grid-cols-3">
+
+                    <input type="text" formControlName="street" placeholder="Street" class="rounded-2xl
+                     border border-white/10
+                     bg-black/20 px-5 py-4
+                     text-white" />
+
+                    <input type="text" formControlName="city" placeholder="City" class="rounded-2xl
+                     border border-white/10
+                     bg-black/20 px-5 py-4
+                     text-white" />
+
+                    <input type="text" formControlName="zip" placeholder="ZIP" class="rounded-2xl
+                     border border-white/10
+                     bg-black/20 px-5 py-4
+                     text-white" />
+
+                </div>
+
+            </div>
+
+            <!-- FORM ARRAY -->
+            <div class="rounded-3xl border
+                 border-white/10
+                 bg-black/20 p-6">
+
+                <div class="mb-6 flex items-center
+                   justify-between">
+
+                    <h3 class="text-2xl font-bold
+                     text-white">
+                        Dynamic Questions
+                    </h3>
+
+                    <button type="button" (click)="addQuestion()" class="rounded-xl bg-cyan-500
+                     px-5 py-3 text-sm
+                     font-semibold text-white">
+                        Add Question
+                    </button>
+
+                </div>
+
+                <div formArrayName="questions" class="space-y-4">
+
+                    @for (
+                    control of questions.controls;
+                    track $index
+                    ) {
+
+                    <div class="flex gap-4">
+
+                        <input [formControlName]="$index" type="text" placeholder="Question" class="flex-1 rounded-2xl
+                         border border-white/10
+                         bg-black/20 px-5 py-4
+                         text-white" />
+
+                        <button type="button" (click)="removeQuestion($index)" class="rounded-2xl
+                         bg-red-500 px-5
+                         text-white">
+                            Remove
+                        </button>
+
+                    </div>
+
+                    }
+
+                </div>
+
+            </div>
+
+            <!-- SUBMIT -->
+            <button type="submit" [disabled]="
+            registrationForm.invalid ||
+            !registrationForm.dirty
+          " class="rounded-2xl bg-cyan-500
+                 px-6 py-4 font-semibold
+                 text-white transition-all
+                 hover:scale-[1.02]
+                 disabled:opacity-50">
+                Submit Reactive Form
+            </button>
+
+        </form>
+
+    </section>
+
+    }
+
+    <!-- ================================================= -->
+    <!-- SIGNAL FORM -->
+    <!-- ================================================= -->
+
+    @if (activeTab() === 'signal') {
+
+    <section class="rounded-[28px]
+             border border-pink-400/20
+             bg-pink-500/[0.04] p-8">
+
+        <div class="mb-10">
+
+            <h2 class="text-4xl font-black text-pink-300">
+                Signal Forms (Upcoming)
+            </h2>
+
+            <p class="mt-4 text-lg leading-8 text-slate-300">
+                Angular is evolving toward signal-based
+                reactivity and future form APIs may integrate deeply
+                with Signals for improved performance and simpler state management.
+            </p>
+
+        </div>
+
+        <div class="rounded-3xl border
+               border-pink-400/20
+               bg-black/20 p-8">
+
+            <pre class="overflow-x-auto text-sm
+                 leading-8 text-slate-300"><code>
+const name = signal('');
+
+const email = signal('');
+
+const formValid = computed(() =>
+  name().length > 3 &&
+  email().includes('@')
+);
+        </code></pre>
+
+        </div>
+
+        <div class="mt-8 grid gap-5 md:grid-cols-2">
+
+            <div class="rounded-2xl border
+                 border-pink-400/20
+                 bg-pink-500/[0.04] p-5">
+
+                <p class="text-slate-300">
+                    ✔️ Fine-grained reactivity
+                </p>
+
+            </div>
+
+            <div class="rounded-2xl border
+                 border-pink-400/20
+                 bg-pink-500/[0.04] p-5">
+
+                <p class="text-slate-300">
+                    ✔️ Better performance
+                </p>
+
+            </div>
+
+            <div class="rounded-2xl border
+                 border-pink-400/20
+                 bg-pink-500/[0.04] p-5">
+
+                <p class="text-slate-300">
+                    ✔️ Less change detection overhead
+                </p>
+
+            </div>
+
+            <div class="rounded-2xl border
+                 border-pink-400/20
+                 bg-pink-500/[0.04] p-5">
+
+                <p class="text-slate-300">
+                    ✔️ Simpler reactive state management
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    }
+
+    <!-- INTERVIEW QUESTIONS -->
+    <section class="rounded-[28px]
+           border border-white/10
+           bg-gradient-to-br from-slate-950
+           via-violet-950 to-slate-900 p-8">
+
+        <div class="mb-10">
+
+            <h2 class="text-4xl font-black text-white">
+                Interview Questions
+            </h2>
+
+        </div>
+
+        <div class="space-y-6">
+
+            @for (
+            item of interviewQuestions;
+            track item.question
+            ) {
+
+            <div class="rounded-3xl border
+                 border-white/10
+                 bg-white/[0.03] p-6">
+
+                <h3 class="text-xl font-bold
+                   text-violet-300">
+                    {{ item.question }}
+                </h3>
+
+                <p class="mt-4 leading-8
+                   text-slate-300">
+                    {{ item.answer }}
+                </p>
+
+            </div>
+
+            }
+
+        </div>
+
+    </section>
+
+</div>

@@ -2,10 +2,69 @@
              border-b border-white/10
              bg-black/20 backdrop-blur-xl">
 
-    <div class="flex items-center justify-between p-6">
+    <div class="flex items-center justify-between py-4 px-6">
+
+        <!-- LOGO -->
+        <div class="flex items-center gap-4">
+
+            <div class="flex h-14 w-14 items-center
+            justify-center rounded-2xl
+           
+           ">
+
+                <svg viewBox="0 0 120 120" width="52" height="52" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#ffffff" />
+                            <stop offset="100%" stop-color="#ffd0d8" />
+                        </linearGradient>
+                        <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#ff6b8a" />
+                            <stop offset="100%" stop-color="#ff2d55" />
+                        </linearGradient>
+                        <linearGradient id="topLeftGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6" />
+                            <stop offset="100%" stop-color="#ffb3c1" stop-opacity="0.3" />
+                        </linearGradient>
+                        <linearGradient id="topRightGrad" x1="100%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9" />
+                            <stop offset="100%" stop-color="#ffe0e8" stop-opacity="0.5" />
+                        </linearGradient>
+                    </defs>
+                    <g transform="translate(60,60)">
+                        <polygon points="0,-42 34,-28 26,16 0,30 -26,16 -34,-28" fill="none"
+                            stroke="rgba(255,255,255,0.35)" stroke-width="1" />
+                        <polygon points="0,-42 34,-28 0,-10" fill="url(#topRightGrad)" />
+                        <polygon points="0,-42 -34,-28 0,-10" fill="url(#topLeftGrad)" />
+                        <polygon points="0,-28 22,-18 16,10 0,20 -16,10 -22,-18" fill="url(#bodyGrad)" stroke="white"
+                            stroke-width="2" />
+                        <polygon points="0,-28 -22,-18 0,-7" fill="rgba(255,255,255,0.3)" />
+                        <polygon points="0,-28 22,-18 0,-7" fill="rgba(180,0,40,0.25)" />
+                        <rect x="-11" y="-7" width="22" height="27" rx="2" fill="url(#shieldGrad)" />
+                        <rect x="-11" y="-7" width="22" height="10" rx="2" fill="rgba(255,255,255,0.4)" />
+                        <circle cx="0" cy="-42" r="3" fill="#00d4ff" opacity="0.9" />
+                        <circle cx="34" cy="-28" r="2" fill="#00d4ff" opacity="0.6" />
+                        <circle cx="-34" cy="-28" r="2" fill="#00d4ff" opacity="0.6" />
+                    </g>
+                </svg>
+
+            </div>
+            <div>
+                <h1 class="text-xl font-bold">
+                    Angular
+                    <span class="text-red-500">Nexus</span>
+                </h1>
+
+                <p class="text-sm text-slate-400">
+                    Angular 21 Learning Hub
+                </p>
+            </div>
+
+
+        </div>
 
         <!-- SEARCH -->
-        <div class="flex w-100 items-center gap-3
+        <!-- <div class="flex w-100 items-center gap-3
                  rounded-2xl border border-white/10
                  bg-white/5 px-4 py-3">
 
@@ -16,7 +75,7 @@
             <input type="text" placeholder="Search Angular topics..." class="w-full bg-transparent
                    outline-none placeholder:text-slate-500" />
 
-        </div>
+        </div> -->
 
         <!-- ACTIONS -->
         <div class="flex items-center gap-4">
@@ -27,12 +86,13 @@
                 Angular 21
             </button>
 
-            <div class="h-12 w-12 rounded-full
+            <!-- <div class="h-12 w-12 rounded-full
                    bg-gradient-to-br
-                   from-cyan-400 to-blue-600"></div>
+                   from-cyan-400 to-blue-600"></div> -->
 
         </div>
 
     </div>
+
 
 </header>

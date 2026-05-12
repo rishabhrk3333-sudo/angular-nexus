@@ -2,32 +2,6 @@
            bg-black/20 backdrop-blur-xl h-full
            transition-all duration-300" [class.w-72]="!sidebarCollapsed()" [class.w-24]="sidebarCollapsed()">
 
-    <!-- LOGO -->
-    <div class="flex items-center gap-4 border-b
-             border-white/10 p-6">
-
-        <div class="flex h-14 w-14 items-center
-               justify-center rounded-2xl
-               bg-gradient-to-br
-               from-red-500 to-pink-500
-               shadow-[0_0_30px_rgba(255,0,80,0.5)]">
-            <span class="text-2xl font-black">NG</span>
-        </div>
-
-        @if (!sidebarCollapsed()) {
-        <div>
-            <h1 class="text-xl font-bold">
-                Angular Nexus
-            </h1>
-
-            <p class="text-sm text-slate-400">
-                Angular 21 Learning Hub
-            </p>
-        </div>
-        }
-
-    </div>
-
     <!-- NAVIGATION -->
 <nav class="space-y-3 p-4">
 

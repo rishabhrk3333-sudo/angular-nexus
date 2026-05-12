@@ -1,1 +1,355 @@
-<p>services-page works!</p>
+<div class="mx-auto max-w-7xl space-y-10 pb-20">
+
+    <!-- HERO -->
+    <section class="relative overflow-hidden rounded-[32px]
+           border border-white/10
+           bg-gradient-to-br from-emerald-950
+           via-slate-900 to-cyan-950
+           p-10 shadow-2xl">
+
+        <div class="absolute inset-0
+             bg-[radial-gradient(circle_at_top_right,rgba(16,185,129,0.18),transparent_30%)]"></div>
+
+        <div class="relative z-10">
+
+            <div class="inline-flex items-center gap-2
+               rounded-full border border-emerald-400/20
+               bg-emerald-400/10 px-4 py-2
+               text-sm font-medium text-emerald-300">
+                <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+                {{ hero.badge }}
+            </div>
+
+            <h1 class="mt-6 text-5xl font-black
+               leading-tight text-white md:text-6xl">
+                {{ hero.title }}
+            </h1>
+
+            <p class="mt-6 max-w-4xl text-lg
+               leading-relaxed text-slate-300">
+                {{ hero.subtitle }}
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- INTRODUCTION -->
+    <section class="rounded-[28px] border border-white/10
+           bg-white/5 p-8 backdrop-blur-xl">
+
+        <h2 class="text-4xl font-black text-white">
+            {{ introduction.title }}
+        </h2>
+
+        <p class="mt-6 whitespace-pre-line
+             text-lg leading-9 text-slate-300">
+            {{ introduction.description }}
+        </p>
+
+    </section>
+
+    <!-- FEATURES -->
+    <section class="rounded-[28px] border border-white/10
+           bg-slate-950/80 p-8">
+
+        <div class="mb-10">
+
+            <h2 class="text-4xl font-black text-white">
+                Why Services are Important
+            </h2>
+
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+
+            @for (feature of features; track feature.title) {
+
+            <div class="rounded-3xl border border-white/10
+                 bg-white/[0.03] p-6">
+
+                <div class="text-5xl">
+                    {{ feature.icon }}
+                </div>
+
+                <h3 class="mt-5 text-2xl font-bold text-white">
+                    {{ feature.title }}
+                </h3>
+
+                <p class="mt-4 leading-8 text-slate-300">
+                    {{ feature.description }}
+                </p>
+
+            </div>
+
+            }
+
+        </div>
+
+    </section>
+
+    <!-- CREATION STEPS -->
+    <section class="rounded-[28px] border border-white/10
+           bg-gradient-to-br from-slate-950
+           via-emerald-950 to-slate-900 p-8">
+
+        <div class="mb-10">
+
+            <h2 class="text-4xl font-black text-white">
+                How to Create a Service
+            </h2>
+
+        </div>
+
+        <div class="space-y-6">
+
+            @for (
+            step of serviceCreationSteps;
+            track step.title
+            ) {
+
+            <div class="rounded-3xl border border-emerald-400/20
+                 bg-emerald-500/[0.04] p-8">
+
+                <div class="flex items-center gap-5">
+
+                    <div class="flex h-14 w-14 items-center
+                     justify-center rounded-2xl
+                     bg-emerald-500/10 text-xl
+                     font-bold text-emerald-300">
+                        {{ step.step }}
+                    </div>
+
+                    <h3 class="text-2xl font-bold text-emerald-300">
+                        {{ step.title }}
+                    </h3>
+
+                </div>
+
+                <pre class="mt-6 overflow-x-auto rounded-2xl
+                   border border-white/10
+                   bg-[#111827] p-6 text-sm
+                   leading-8 text-slate-300"><code>{{ step.code }}</code></pre>
+
+            </div>
+
+            }
+
+        </div>
+
+    </section>
+
+    <!-- EXAMPLES -->
+    <section class="grid gap-6 xl:grid-cols-2">
+
+        <!-- SERVICE -->
+        <div class="rounded-[28px] border border-cyan-400/20
+             bg-cyan-500/[0.04] p-8">
+
+            <h2 class="text-3xl font-bold text-cyan-300">
+                Service Example
+            </h2>
+
+            <pre class="mt-6 overflow-x-auto rounded-2xl
+               border border-white/10
+               bg-[#111827] p-6 text-sm
+               leading-8 text-slate-300"><code>{{ serviceExample }}</code></pre>
+
+        </div>
+
+        <!-- COMPONENT -->
+        <div class="rounded-[28px] border border-pink-400/20
+             bg-pink-500/[0.04] p-8">
+
+            <h2 class="text-3xl font-bold text-pink-300">
+                Injecting Service into Component
+            </h2>
+
+            <pre class="mt-6 overflow-x-auto rounded-2xl
+               border border-white/10
+               bg-[#111827] p-6 text-sm
+               leading-8 text-slate-300"><code>{{ componentExample }}</code></pre>
+
+        </div>
+
+    </section>
+
+    <!-- SERVICE TYPES -->
+    <section class="rounded-[28px] border border-white/10
+           bg-white/5 p-8">
+
+        <div class="mb-10">
+
+            <h2 class="text-4xl font-black text-white">
+                Types of Services
+            </h2>
+
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-2">
+
+            @for (
+            service of serviceTypes;
+            track service.title
+            ) {
+
+            <div class="rounded-3xl border border-white/10
+                 bg-white/[0.03] p-6">
+
+                <div class="text-5xl">
+                    {{ service.icon }}
+                </div>
+
+                <h3 class="mt-5 text-2xl font-bold text-white">
+                    {{ service.title }}
+                </h3>
+
+                <p class="mt-4 leading-8 text-slate-300">
+                    {{ service.description }}
+                </p>
+
+                <pre class="mt-6 overflow-x-auto rounded-2xl
+                   bg-black/30 p-5 text-sm
+                   text-cyan-300"><code>{{ service.code }}</code></pre>
+
+            </div>
+
+            }
+
+        </div>
+
+    </section>
+
+    <!-- REAL WORLD -->
+    <section class="rounded-[28px] border border-purple-400/20
+           bg-purple-500/[0.04] p-8">
+
+        <div class="mb-8">
+
+            <h2 class="text-3xl font-bold text-purple-300">
+                Real World Service Examples
+            </h2>
+
+        </div>
+
+        <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+
+            @for (
+            item of realWorldExamples;
+            track item
+            ) {
+
+            <div class="rounded-2xl border border-white/10
+                 bg-white/[0.03] p-5">
+
+                <p class="text-lg text-slate-300">
+                    ✔️ {{ item }}
+                </p>
+
+            </div>
+
+            }
+
+        </div>
+
+    </section>
+
+    <!-- OBSERVABLE -->
+    <section class="rounded-[28px] border border-blue-400/20
+           bg-blue-500/[0.04] p-8">
+
+        <div class="mb-8">
+
+            <h2 class="text-3xl font-bold text-blue-300">
+                Shared State with RxJS
+            </h2>
+
+            <p class="mt-4 text-lg leading-8 text-slate-300">
+                Services commonly use RxJS Observables
+                and BehaviorSubjects for state management.
+            </p>
+
+        </div>
+
+        <pre class="overflow-x-auto rounded-2xl
+             border border-white/10
+             bg-[#111827] p-6 text-sm
+             leading-8 text-slate-300"><code>{{ observableExample }}</code></pre>
+
+    </section>
+
+    <!-- BEST PRACTICES -->
+    <section class="rounded-[28px] border border-yellow-400/10
+           bg-yellow-500/[0.03] p-8">
+
+        <div class="mb-8">
+
+            <h2 class="text-3xl font-bold text-white">
+                Best Practices
+            </h2>
+
+        </div>
+
+        <div class="grid gap-4 md:grid-cols-2">
+
+            @for (
+            practice of bestPractices;
+            track practice
+            ) {
+
+            <div class="rounded-2xl border
+                 border-yellow-400/20
+                 bg-yellow-500/[0.04] p-5">
+
+                <p class="text-lg text-slate-300">
+                    ✔️ {{ practice }}
+                </p>
+
+            </div>
+
+            }
+
+        </div>
+
+    </section>
+
+    <!-- INTERVIEW -->
+    <section class="rounded-[28px] border border-white/10
+           bg-gradient-to-br from-slate-950
+           via-cyan-950 to-slate-900 p-8">
+
+        <div class="mb-10">
+
+            <h2 class="text-4xl font-black text-white">
+                Interview Questions
+            </h2>
+
+        </div>
+
+        <div class="space-y-6">
+
+            @for (
+            item of interviewQuestions;
+            track item.question
+            ) {
+
+            <div class="rounded-3xl border border-white/10
+                 bg-white/[0.03] p-6">
+
+                <h3 class="text-xl font-bold text-cyan-300">
+                    {{ item.question }}
+                </h3>
+
+                <p class="mt-4 leading-8 text-slate-300">
+                    {{ item.answer }}
+                </p>
+
+            </div>
+
+            }
+
+        </div>
+
+    </section>
+
+</div>
