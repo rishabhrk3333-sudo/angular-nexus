@@ -1,0 +1,27 @@
+<div class="flex min-h-screen bg-[#0B1120] text-white">
+    <app-sidebar></app-sidebar>
+    <div class="flex flex-1 flex-col">
+        <app-header></app-header>
+
+        <!-- PAGE CONTENT -->
+        <main class="flex-1 overflow-auto p-8">
+            <!-- BACKGROUND EFFECTS -->
+            <div class="pointer-events-none fixed inset-0 -z-10">
+                <div class="absolute left-0 top-0
+                 h-100 w-100
+                 rounded-full
+                 bg-red-500/20 blur-3xl"></div>
+                <div class="absolute bottom-0 right-0
+                 h-100 w-100
+                 rounded-full
+                 bg-cyan-500/20 blur-3xl"></div>
+
+            </div>
+
+            <router-outlet />
+
+        </main>
+
+    </div>
+
+</div>

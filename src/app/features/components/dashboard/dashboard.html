@@ -1,0 +1,208 @@
+<div class="space-y-10">
+
+    <!-- HERO -->
+    <section class="relative overflow-hidden rounded-[32px]
+           border border-white/10
+           bg-gradient-to-br
+           from-red-500/20
+           via-cyan-500/10
+           to-purple-500/20
+           p-10">
+
+        <!-- GLOW EFFECTS -->
+        <div class="absolute -left-20 top-0
+             h-72 w-72 rounded-full
+             bg-red-500/20 blur-3xl"></div>
+
+        <div class="absolute bottom-0 right-0
+             h-72 w-72 rounded-full
+             bg-cyan-500/20 blur-3xl"></div>
+
+        <div class="relative z-10">
+
+            <div class="mb-6 inline-flex items-center gap-3
+               rounded-full border border-white/10
+               bg-white/5 px-5 py-2">
+                <span class="h-3 w-3 rounded-full bg-green-400"></span>
+
+                <span class="text-sm text-slate-300">
+                    Angular 21 Learning Platform
+                </span>
+            </div>
+
+            <h1 class="max-w-4xl text-6xl font-black
+               leading-tight">
+                Master
+                <span class="bg-gradient-to-r
+                 from-red-400
+                 via-pink-400
+                 to-cyan-400
+                 bg-clip-text text-transparent">
+                    Angular 21
+                </span>
+
+                From Beginner
+                to Advanced
+            </h1>
+
+            <p class="mt-6 max-w-3xl
+               text-xl leading-relaxed
+               text-slate-300">
+                Learn Angular through interactive demos,
+                real-world architecture, visual experiments,
+                signals, RxJS, Material UI, Tailwind CSS,
+                and upcoming Angular innovations.
+            </p>
+
+            <div class="mt-10 flex flex-wrap gap-4">
+
+                <button class="rounded-2xl
+                 bg-gradient-to-r
+                 from-red-500 to-pink-500
+                 px-8 py-4 font-semibold
+                 shadow-[0_0_30px_rgba(255,0,80,0.4)]
+                 transition duration-300
+                 hover:scale-105">
+                    Start Learning
+                </button>
+
+                <button class="rounded-2xl border border-white/10
+                 bg-white/5 px-8 py-4
+                 transition hover:bg-white/10">
+                    Explore Labs
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- STATS -->
+    <section class="grid grid-cols-1 gap-6
+           md:grid-cols-2 xl:grid-cols-4">
+
+        <div class="rounded-3xl border border-white/10
+             bg-white/5 p-6 backdrop-blur-xl">
+            <p class="text-slate-400">
+                Topics
+            </p>
+
+            <h2 class="mt-2 text-4xl font-black">
+                120+
+            </h2>
+        </div>
+
+        <div class="rounded-3xl border border-white/10
+             bg-white/5 p-6 backdrop-blur-xl">
+            <p class="text-slate-400">
+                Interactive Demos
+            </p>
+
+            <h2 class="mt-2 text-4xl font-black">
+                40+
+            </h2>
+        </div>
+
+        <div class="rounded-3xl border border-white/10
+             bg-white/5 p-6 backdrop-blur-xl">
+            <p class="text-slate-400">
+                Angular Labs
+            </p>
+
+            <h2 class="mt-2 text-4xl font-black">
+                15+
+            </h2>
+        </div>
+
+        <div class="rounded-3xl border border-white/10
+             bg-white/5 p-6 backdrop-blur-xl">
+            <p class="text-slate-400">
+                Upcoming Features
+            </p>
+
+            <h2 class="mt-2 text-4xl font-black">
+                Angular 22
+            </h2>
+        </div>
+
+    </section>
+
+    <!-- LEARNING TRACKS -->
+    <section>
+
+        <div class="mb-8 flex items-center justify-between">
+
+            <div>
+                <h2 class="text-4xl font-black">
+                    Learning Tracks
+                </h2>
+
+                <p class="mt-2 text-slate-400">
+                    Structured Angular learning experience
+                </p>
+            </div>
+
+        </div>
+
+        <div class="grid grid-cols-1 gap-8
+             md:grid-cols-2
+             xl:grid-cols-3">
+
+            @for (card of cards; track card.title) {
+
+            <div class="group relative overflow-hidden
+                 rounded-[28px]
+                 border border-white/10
+                 bg-white/5 p-8
+                 backdrop-blur-xl
+                 transition duration-500
+                 hover:-translate-y-2
+                 hover:border-white/20">
+
+                <!-- CARD GLOW -->
+                <div class="absolute inset-0 opacity-0
+                   transition duration-500
+                   group-hover:opacity-100">
+                    <div class="absolute inset-0 bg-gradient-to-br
+                     {{ card.color }} opacity-10"></div>
+                </div>
+
+                <div class="relative z-10">
+
+                    <div class="mb-6 flex h-20 w-20
+                     items-center justify-center
+                     rounded-3xl
+                     bg-gradient-to-br
+                     {{ card.color }}
+                     text-4xl">
+                        {{ card.icon }}
+                    </div>
+
+                    <h3 class="text-2xl font-bold">
+                        {{ card.title }}
+                    </h3>
+
+                    <p class="mt-4 leading-relaxed
+                     text-slate-400">
+                        {{ card.description }}
+                    </p>
+
+                    <button class="mt-8 rounded-2xl
+                     border border-white/10
+                     bg-white/5 px-5 py-3
+                     transition hover:bg-white/10">
+                        Explore
+                    </button>
+
+                </div>
+
+            </div>
+
+            }
+
+        </div>
+
+    </section>
+
+</div>
