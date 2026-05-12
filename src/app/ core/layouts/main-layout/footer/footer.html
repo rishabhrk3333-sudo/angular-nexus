@@ -1,0 +1,212 @@
+<footer
+  class="relative mt-20 overflow-hidden
+         border-t border-white/10
+         bg-[#060816]"
+>
+
+  <!-- Glow Effects -->
+  <div
+    class="absolute left-0 top-0 h-72 w-72
+           rounded-full bg-cyan-500/10 blur-3xl"
+  ></div>
+
+  <div
+    class="absolute bottom-0 right-0 h-72 w-72
+           rounded-full bg-fuchsia-500/10 blur-3xl"
+  ></div>
+
+  <div
+    class="relative z-10 mx-auto
+           max-w-7xl px-6 py-14"
+  >
+
+    <div
+      class="grid gap-10 md:grid-cols-2 lg:grid-cols-4"
+    >
+
+      <!-- BRAND -->
+      <div>
+
+        <div class="flex items-center gap-3">
+
+          <div
+            class="flex h-12 w-12 items-center
+                   justify-center rounded-2xl
+                   bg-gradient-to-br
+                   from-cyan-400 to-blue-600
+                   text-xl font-black text-white"
+          >
+            A
+          </div>
+
+          <div>
+
+            <h2
+              class="text-2xl font-black text-white"
+            >
+              Angular Nexus
+            </h2>
+
+            <p class="text-sm text-slate-400">
+              Advanced Angular Learning Platform
+            </p>
+
+          </div>
+
+        </div>
+
+        <p
+          class="mt-6 leading-8 text-slate-400"
+        >
+          Built for developers who want to master
+          Angular from basics to advanced architecture,
+          performance optimization, and future Angular features.
+        </p>
+
+      </div>
+
+      <!-- OWNER -->
+      <div>
+
+        <h3
+          class="text-lg font-bold text-white"
+        >
+          Owner
+        </h3>
+
+        <div
+          class="mt-5 rounded-2xl
+                 border border-cyan-400/20
+                 bg-cyan-500/[0.04] p-5"
+        >
+
+          <p class="text-slate-300">
+            Designed & Developed by
+          </p>
+
+          <h4
+            class="mt-2 text-2xl font-black
+                   text-cyan-300"
+          >
+            Rishabh Kumar
+          </h4>
+
+          <p class="mt-3 text-sm text-slate-400">
+            Full Stack Angular Developer
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- TECH -->
+      <div>
+
+        <h3
+          class="text-lg font-bold text-white"
+        >
+          Tech Stack
+        </h3>
+
+        <div class="mt-5 flex flex-wrap gap-3">
+
+          @for (tech of technologies; track tech) {
+
+            <span
+              class="rounded-full border border-white/10
+                     bg-white/[0.04]
+                     px-4 py-2 text-sm
+                     text-slate-300"
+            >
+              {{ tech }}
+            </span>
+
+          }
+
+        </div>
+
+      </div>
+
+      <!-- SOCIAL -->
+      <div>
+
+        <h3
+          class="text-lg font-bold text-white"
+        >
+          Connect
+        </h3>
+
+        <div class="mt-5 space-y-4">
+
+          @for (social of socialLinks; track social.name) {
+
+            <a
+              [href]="social.url"
+              target="_blank"
+              class="flex items-center gap-3
+                     rounded-2xl border border-white/10
+                     bg-white/[0.03]
+                     px-5 py-4 transition-all
+                     duration-300 hover:border-cyan-400/30
+                     hover:bg-cyan-500/[0.04]"
+            >
+
+              <mat-icon
+                class="text-cyan-300"
+              >
+                {{ social.icon }}
+              </mat-icon>
+
+              <span class="text-slate-300">
+                {{ social.name }}
+              </span>
+
+            </a>
+
+          }
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- BOTTOM -->
+    <div
+      class="mt-14 flex flex-col items-center
+             justify-between gap-4
+             border-t border-white/10
+             pt-8 md:flex-row"
+    >
+
+      <p class="text-sm text-slate-500">
+        © {{ currentYear }} Angular Nexus.
+        All rights reserved.
+      </p>
+
+      <div
+        class="flex items-center gap-3
+               rounded-full border border-fuchsia-400/20
+               bg-fuchsia-500/[0.04]
+               px-5 py-2"
+      >
+
+        <span
+          class="h-2 w-2 rounded-full
+                 bg-fuchsia-400 animate-pulse"
+        ></span>
+
+        <p
+          class="text-sm font-medium
+                 text-fuchsia-300"
+        >
+          Owned by Rishabh Kumar
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</footer>

@@ -13,7 +13,13 @@ export const routes: Routes = [
                         (m) => m.Dashboard
                     ),
             },
-
+            {
+                path: 'basics',
+                loadChildren: () =>
+                    import('./features/basics/basics.routes').then(
+                        (m) => m.BASICS_ROUTES
+                    ),
+            },
             {
                 path: '',
                 redirectTo: 'dashboard',

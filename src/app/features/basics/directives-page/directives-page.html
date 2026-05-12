@@ -1,0 +1,652 @@
+<div class="mx-auto max-w-7xl space-y-10 pb-20">
+
+  <!-- HERO -->
+  <section
+    class="relative overflow-hidden rounded-[32px]
+           border border-white/10
+           bg-gradient-to-br from-violet-950
+           via-slate-900 to-fuchsia-950
+           p-10 shadow-2xl backdrop-blur-xl"
+  >
+
+    <div
+      class="absolute inset-0
+             bg-[radial-gradient(circle_at_top_right,rgba(168,85,247,0.18),transparent_30%)]"
+    ></div>
+
+    <div class="relative z-10">
+
+      <div
+        class="mb-4 inline-flex items-center gap-2
+               rounded-full border border-violet-400/20
+               bg-violet-400/10 px-4 py-2
+               text-sm font-medium text-violet-300"
+      >
+        <span class="h-2 w-2 rounded-full bg-violet-400"></span>
+        Angular Basics
+      </div>
+
+      <h1
+        class="max-w-5xl text-5xl font-black
+               leading-tight text-white md:text-6xl"
+      >
+        Angular
+        <span
+          class="bg-gradient-to-r from-violet-400
+                 via-fuchsia-400 to-pink-500
+                 bg-clip-text text-transparent"
+        >
+          Directives
+        </span>
+      </h1>
+
+      <p
+        class="mt-6 max-w-4xl text-lg
+               leading-relaxed text-slate-300"
+      >
+        Directives are one of Angular’s most powerful features.
+        They allow developers to manipulate the DOM, add dynamic behavior,
+        and build reusable UI functionality.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- WHAT IS DIRECTIVE -->
+  <section
+    class="rounded-[28px] border border-white/10
+           bg-white/5 p-8 backdrop-blur-xl"
+  >
+
+    <div class="mb-8 flex items-center gap-4">
+
+      <div
+        class="flex h-14 w-14 items-center
+               justify-center rounded-2xl
+               bg-violet-500/10 text-3xl"
+      >
+        ⚡
+      </div>
+
+      <div>
+
+        <h2 class="text-3xl font-bold text-white">
+          What are Directives in Angular?
+        </h2>
+
+        <p class="mt-2 text-slate-400">
+          Directives extend and manipulate DOM behavior.
+        </p>
+
+      </div>
+
+    </div>
+
+    <div
+      class="rounded-3xl border border-violet-400/20
+             bg-violet-500/[0.04] p-8"
+    >
+
+      <p class="text-lg leading-9 text-slate-300">
+
+        Directives are instructions in Angular that help manipulate the DOM
+        and add behavior to existing elements or even create new elements.
+
+      </p>
+
+      <p class="mt-6 text-lg leading-9 text-slate-300">
+
+        They are a key feature of Angular used to create dynamic,
+        reusable, and maintainable UI behavior.
+
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- TYPES -->
+  <section
+    class="rounded-[28px] border border-white/10
+           bg-slate-950/80 p-8"
+  >
+
+    <div class="mb-10">
+
+      <h2 class="text-4xl font-black text-white">
+        Types of Directives
+      </h2>
+
+      <p class="mt-3 text-slate-400">
+        Angular provides three major types of directives.
+      </p>
+
+    </div>
+
+    <div class="grid gap-6 lg:grid-cols-3">
+
+      <!-- COMPONENT -->
+      <div
+        class="rounded-3xl border border-cyan-400/20
+               bg-cyan-500/[0.04] p-8"
+      >
+
+        <div
+          class="mb-5 flex h-14 w-14 items-center
+                 justify-center rounded-2xl
+                 bg-cyan-500/10 text-3xl"
+        >
+          🧩
+        </div>
+
+        <h3 class="text-2xl font-bold text-cyan-300">
+          Component Directives
+        </h3>
+
+        <p class="mt-5 leading-8 text-slate-300">
+          Components are actually directives with templates.
+          Every Angular component is considered a directive.
+        </p>
+
+        <div
+          class="mt-6 rounded-2xl bg-black/30 p-4
+                 font-mono text-sm text-cyan-300"
+        >
+          @Component()
+        </div>
+
+      </div>
+
+      <!-- STRUCTURAL -->
+      <div
+        class="rounded-3xl border border-pink-400/20
+               bg-pink-500/[0.04] p-8"
+      >
+
+        <div
+          class="mb-5 flex h-14 w-14 items-center
+                 justify-center rounded-2xl
+                 bg-pink-500/10 text-3xl"
+        >
+          🏗️
+        </div>
+
+        <h3 class="text-2xl font-bold text-pink-300">
+          Structural Directives
+        </h3>
+
+        <p class="mt-5 leading-8 text-slate-300">
+          Structural directives change the structure of the DOM
+          by adding or removing elements.
+        </p>
+
+        <div class="mt-6 flex flex-wrap gap-3">
+
+          <span
+            class="rounded-full bg-pink-500/10
+                   px-4 py-2 text-sm text-pink-300"
+          >
+            *ngIf
+          </span>
+
+          <span
+            class="rounded-full bg-pink-500/10
+                   px-4 py-2 text-sm text-pink-300"
+          >
+            *ngFor
+          </span>
+
+          <span
+            class="rounded-full bg-pink-500/10
+                   px-4 py-2 text-sm text-pink-300"
+          >
+            *ngSwitch
+          </span>
+
+        </div>
+
+      </div>
+
+      <!-- ATTRIBUTE -->
+      <div
+        class="rounded-3xl border border-emerald-400/20
+               bg-emerald-500/[0.04] p-8"
+      >
+
+        <div
+          class="mb-5 flex h-14 w-14 items-center
+                 justify-center rounded-2xl
+                 bg-emerald-500/10 text-3xl"
+        >
+          🎨
+        </div>
+
+        <h3 class="text-2xl font-bold text-emerald-300">
+          Attribute Directives
+        </h3>
+
+        <p class="mt-5 leading-8 text-slate-300">
+          Attribute directives change the appearance or behavior
+          of elements without changing layout structure.
+        </p>
+
+        <div class="mt-6 flex flex-wrap gap-3">
+
+          <span
+            class="rounded-full bg-emerald-500/10
+                   px-4 py-2 text-sm text-emerald-300"
+          >
+            ngClass
+          </span>
+
+          <span
+            class="rounded-full bg-emerald-500/10
+                   px-4 py-2 text-sm text-emerald-300"
+          >
+            ngStyle
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ASTERISK -->
+  <section
+    class="rounded-[28px] border border-yellow-400/10
+           bg-yellow-500/[0.03] p-8"
+  >
+
+    <div class="mb-8">
+
+      <h2 class="text-3xl font-bold text-white">
+        What does the * in *ngIf or *ngFor signify?
+      </h2>
+
+      <p class="mt-3 text-slate-400">
+        Understanding Angular structural directive syntax.
+      </p>
+
+    </div>
+
+    <div class="grid gap-6 lg:grid-cols-2">
+
+      <div
+        class="rounded-3xl border border-yellow-400/20
+               bg-yellow-500/[0.04] p-8"
+      >
+
+        <h3 class="text-2xl font-bold text-yellow-300">
+          The Asterisk (*)
+        </h3>
+
+        <p class="mt-5 leading-8 text-slate-300">
+
+          The <code>*</code> is shorthand syntax for a structural directive.
+
+        </p>
+
+        <p class="mt-5 leading-8 text-slate-300">
+
+          Angular transforms the element into an
+          <code>&lt;ng-template&gt;</code> behind the scenes.
+
+        </p>
+
+        <p class="mt-5 leading-8 text-slate-300">
+
+          Structural directives change the structure of the DOM
+          by adding or removing elements dynamically.
+
+        </p>
+
+      </div>
+
+      <div
+        class="rounded-3xl border border-white/10
+               bg-[#111827] p-8"
+      >
+
+        <div
+          class="mb-5 inline-flex rounded-lg
+                 bg-yellow-500/10 px-3 py-1
+                 text-sm text-yellow-300"
+        >
+          Angular Transformation
+        </div>
+
+        <pre
+          class="overflow-x-auto text-sm
+                 leading-8 text-slate-300"
+        ><code>&lt;div *ngIf="isVisible"&gt;
+  Hello Angular
+&lt;/div&gt;
+
+<!-- Behind the scenes -->
+
+&lt;ng-template [ngIf]="isVisible"&gt;
+  &lt;div&gt;
+    Hello Angular
+  &lt;/div&gt;
+&lt;/ng-template&gt;
+</code></pre>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CUSTOM DIRECTIVE -->
+  <section
+    class="rounded-[28px] border border-white/10
+           bg-gradient-to-br from-slate-950
+           via-violet-950 to-slate-900 p-8"
+  >
+
+    <div class="mb-10">
+
+      <h2 class="text-4xl font-black text-white">
+        How to Create a Custom Directive
+      </h2>
+
+      <p class="mt-3 max-w-4xl text-slate-400">
+        Custom directives allow us to create reusable behavior
+        and DOM interactions in Angular applications.
+      </p>
+
+    </div>
+
+    <!-- STEP 1 -->
+    <div
+      class="mb-8 rounded-3xl border border-cyan-400/20
+             bg-cyan-500/[0.04] p-8"
+    >
+
+      <div class="mb-5 flex items-center gap-4">
+
+        <div
+          class="flex h-12 w-12 items-center
+                 justify-center rounded-2xl
+                 bg-cyan-500/10 text-xl font-bold text-cyan-300"
+        >
+          1
+        </div>
+
+        <h3 class="text-2xl font-bold text-cyan-300">
+          Generate the Directive
+        </h3>
+
+      </div>
+
+      <pre
+        class="overflow-x-auto rounded-2xl
+               bg-black/30 p-5 text-sm
+               leading-8 text-slate-300"
+      ><code>ng generate directive highlight
+</code></pre>
+
+    </div>
+
+    <!-- STEP 2 -->
+    <div
+      class="mb-8 rounded-3xl border border-pink-400/20
+             bg-pink-500/[0.04] p-8"
+    >
+
+      <div class="mb-5 flex items-center gap-4">
+
+        <div
+          class="flex h-12 w-12 items-center
+                 justify-center rounded-2xl
+                 bg-pink-500/10 text-xl font-bold text-pink-300"
+        >
+          2
+        </div>
+
+        <h3 class="text-2xl font-bold text-pink-300">
+          Directive Code
+        </h3>
+
+      </div>
+
+      <pre
+        class="overflow-x-auto rounded-2xl
+               border border-white/10
+               bg-[#111827] p-6 text-sm
+               leading-8 text-slate-300"
+      ><code>import &#123;
+  Directive,
+  ElementRef,
+  HostListener,
+  Renderer2
+&#125; from '@angular/core';
+
+@Directive(&#123;
+  selector: '[appHighlight]'
+&#125;)
+export class HighlightDirective &#123;
+
+  constructor(
+    private el: ElementRef,
+    private renderer: Renderer2
+  ) &#123;&#125;
+
+  @HostListener('mouseenter')
+  onMouseEnter() &#123;
+    this.renderer.setStyle(
+      this.el.nativeElement,
+      'backgroundColor',
+      'yellow'
+    );
+  &#125;
+
+  @HostListener('mouseleave')
+  onMouseLeave() &#123;
+    this.renderer.removeStyle(
+      this.el.nativeElement,
+      'backgroundColor'
+    );
+  &#125;
+&#125;
+</code></pre>
+
+    </div>
+
+    <!-- STEP 3 -->
+    <div
+      class="rounded-3xl border border-emerald-400/20
+             bg-emerald-500/[0.04] p-8"
+    >
+
+      <div class="mb-5 flex items-center gap-4">
+
+        <div
+          class="flex h-12 w-12 items-center
+                 justify-center rounded-2xl
+                 bg-emerald-500/10 text-xl font-bold text-emerald-300"
+        >
+          3
+        </div>
+
+        <h3 class="text-2xl font-bold text-emerald-300">
+          Use the Directive
+        </h3>
+
+      </div>
+
+      <pre
+        class="overflow-x-auto rounded-2xl
+               bg-black/30 p-5 text-sm
+               leading-8 text-slate-300"
+      ><code>&lt;h1 appHighlight&gt;
+  Hover over me!
+&lt;/h1&gt;
+</code></pre>
+
+    </div>
+
+  </section>
+
+  <!-- KEY PARTS -->
+  <section
+    class="rounded-[28px] border border-white/10
+           bg-white/5 p-8 backdrop-blur-xl"
+  >
+
+    <div class="mb-10">
+
+      <h2 class="text-4xl font-black text-white">
+        Explanation of Key Parts
+      </h2>
+
+    </div>
+
+    <div class="grid gap-6 lg:grid-cols-2">
+
+      <div
+        class="rounded-3xl border border-violet-400/20
+               bg-violet-500/[0.04] p-6"
+      >
+
+        <h3 class="text-xl font-bold text-violet-300">
+          @Directive()
+        </h3>
+
+        <p class="mt-4 leading-8 text-slate-300">
+          Marks the class as a directive and defines
+          how Angular should use it in templates.
+        </p>
+
+      </div>
+
+      <div
+        class="rounded-3xl border border-cyan-400/20
+               bg-cyan-500/[0.04] p-6"
+      >
+
+        <h3 class="text-xl font-bold text-cyan-300">
+          ElementRef
+        </h3>
+
+        <p class="mt-4 leading-8 text-slate-300">
+          Gives access to the host DOM element.
+        </p>
+
+      </div>
+
+      <div
+        class="rounded-3xl border border-pink-400/20
+               bg-pink-500/[0.04] p-6"
+      >
+
+        <h3 class="text-xl font-bold text-pink-300">
+          Renderer2
+        </h3>
+
+        <p class="mt-4 leading-8 text-slate-300">
+          Safely manipulates the DOM and is preferred
+          over direct native element access.
+        </p>
+
+      </div>
+
+      <div
+        class="rounded-3xl border border-emerald-400/20
+               bg-emerald-500/[0.04] p-6"
+      >
+
+        <h3 class="text-xl font-bold text-emerald-300">
+          @HostListener
+        </h3>
+
+        <p class="mt-4 leading-8 text-slate-300">
+          Listens to events on the host element such as
+          mouseenter or mouseleave.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- INTERVIEW QUESTIONS -->
+  <section
+    class="rounded-[28px] border border-white/10
+           bg-gradient-to-br from-slate-950
+           via-indigo-950 to-slate-900 p-8"
+  >
+
+    <div class="mb-10">
+
+      <h2 class="text-4xl font-black text-white">
+        Interview Questions
+      </h2>
+
+      <p class="mt-3 text-slate-400">
+        Important directive-related interview concepts.
+      </p>
+
+    </div>
+
+    <div class="space-y-6">
+
+      <div
+        class="rounded-3xl border border-white/10
+               bg-white/[0.03] p-6"
+      >
+
+        <h3 class="text-xl font-bold text-cyan-300">
+          What is the difference between a component and a directive?
+        </h3>
+
+        <p class="mt-4 leading-8 text-slate-300">
+          Components include templates and control UI sections,
+          while directives only add behavior to existing elements.
+        </p>
+
+      </div>
+
+      <div
+        class="rounded-3xl border border-white/10
+               bg-white/[0.03] p-6"
+      >
+
+        <h3 class="text-xl font-bold text-cyan-300">
+          Why use Renderer2 instead of direct DOM manipulation?
+        </h3>
+
+        <p class="mt-4 leading-8 text-slate-300">
+          Renderer2 provides a safer and platform-independent
+          way to manipulate the DOM in Angular applications.
+        </p>
+
+      </div>
+
+      <div
+        class="rounded-3xl border border-white/10
+               bg-white/[0.03] p-6"
+      >
+
+        <h3 class="text-xl font-bold text-cyan-300">
+          Can multiple structural directives be used on one element?
+        </h3>
+
+        <p class="mt-4 leading-8 text-slate-300">
+          No. Angular allows only one structural directive per element.
+          Use an additional wrapper like
+          <code>&lt;ng-container&gt;</code> if needed.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</div>

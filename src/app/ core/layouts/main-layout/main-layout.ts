@@ -6,6 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { Sidebar } from './sidebar/sidebar';
 import { Header } from './header/header';
+import { Footer } from './footer/footer';
 
 
 @Component({
@@ -17,6 +18,7 @@ import { Header } from './header/header';
     RouterOutlet,
     MatIconModule,
     MatButtonModule,
+    Footer
   ],
   templateUrl: './main-layout.html',
   styleUrl: './main-layout.css',

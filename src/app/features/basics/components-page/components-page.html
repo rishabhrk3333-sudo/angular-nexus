@@ -1,0 +1,551 @@
+<div class="mx-auto max-w-7xl space-y-10 pb-20">
+
+  <!-- HERO -->
+  <section
+    class="relative overflow-hidden rounded-[32px]
+           border border-white/10
+           bg-gradient-to-br from-cyan-500/10
+           via-slate-900 to-blue-950
+           p-10 shadow-2xl backdrop-blur-xl"
+  >
+
+    <div
+      class="absolute inset-0
+             bg-[radial-gradient(circle_at_top_right,rgba(6,182,212,0.15),transparent_30%)]"
+    ></div>
+
+    <div class="relative z-10">
+
+      <div
+        class="mb-4 inline-flex items-center gap-2
+               rounded-full border border-cyan-400/20
+               bg-cyan-400/10 px-4 py-2
+               text-sm font-medium text-cyan-300"
+      >
+        <span class="h-2 w-2 rounded-full bg-cyan-400"></span>
+        Angular Basics
+      </div>
+
+      <h1
+        class="max-w-4xl text-5xl font-black
+               leading-tight text-white md:text-6xl"
+      >
+        Angular Components
+        <span
+          class="bg-gradient-to-r from-cyan-400
+                 via-blue-400 to-indigo-500
+                 bg-clip-text text-transparent"
+        >
+          In-Depth Guide
+        </span>
+      </h1>
+
+      <p
+        class="mt-6 max-w-3xl text-lg
+               leading-relaxed text-slate-300"
+      >
+        Components are the core building blocks of Angular applications.
+        Every Angular UI is composed of reusable, isolated, and maintainable
+        components that work together to create dynamic applications.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- WHAT IS COMPONENT -->
+  <section
+    class="rounded-[28px] border border-white/10
+           bg-white/5 p-8 backdrop-blur-xl"
+  >
+
+    <div class="mb-8 flex items-center gap-4">
+
+      <div
+        class="flex h-14 w-14 items-center justify-center
+               rounded-2xl bg-cyan-500/10"
+      >
+        <span class="text-3xl">🧩</span>
+      </div>
+
+      <div>
+        <h2 class="text-3xl font-bold text-white">
+          1. What is an Angular Component?
+        </h2>
+
+        <p class="mt-1 text-slate-400">
+          Components control a portion of the user interface.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="grid gap-6 lg:grid-cols-3">
+
+      <div
+        class="rounded-2xl border border-cyan-400/20
+               bg-cyan-500/5 p-6"
+      >
+        <h3 class="text-xl font-bold text-cyan-300">
+          TypeScript Class
+        </h3>
+
+        <p class="mt-3 leading-relaxed text-slate-300">
+          Contains the business logic, properties, methods,
+          dependency injection, and state management.
+        </p>
+      </div>
+
+      <div
+        class="rounded-2xl border border-purple-400/20
+               bg-purple-500/5 p-6"
+      >
+        <h3 class="text-xl font-bold text-purple-300">
+          HTML Template
+        </h3>
+
+        <p class="mt-3 leading-relaxed text-slate-300">
+          Defines the structure and UI of the component using Angular template syntax.
+        </p>
+      </div>
+
+      <div
+        class="rounded-2xl border border-pink-400/20
+               bg-pink-500/5 p-6"
+      >
+        <h3 class="text-xl font-bold text-pink-300">
+          CSS / SCSS
+        </h3>
+
+        <p class="mt-3 leading-relaxed text-slate-300">
+          Styles the component and controls visual appearance and responsiveness.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- BASIC COMPONENT -->
+  <section
+    class="rounded-[28px] border border-white/10
+           bg-slate-950/80 p-8"
+  >
+
+    <div class="mb-8">
+
+      <h2 class="text-3xl font-bold text-white">
+        Basic Component Structure
+      </h2>
+
+      <p class="mt-3 text-slate-400">
+        A component combines logic, template, and styling into a reusable UI block.
+      </p>
+
+    </div>
+
+    <!-- TS -->
+    <div class="mb-8">
+
+      <div class="mb-3 flex items-center gap-3">
+        <div
+          class="rounded-lg bg-blue-500/10
+                 px-3 py-1 text-sm font-medium text-blue-300"
+        >
+          TypeScript
+        </div>
+      </div>
+
+      <pre
+        class="overflow-x-auto rounded-2xl
+               border border-white/10
+               bg-[#0f172a] p-6 text-sm
+               leading-7 text-slate-300"
+      ><code>import &#123; Component &#125; from '@angular/core';
+
+@Component(&#123;
+  selector: 'app-user-profile',
+  templateUrl: './user-profile.component.html',
+  styleUrls: ['./user-profile.component.css']
+&#125;)
+export class UserProfileComponent &#123;
+  userName = 'John Doe';
+&#125;
+</code></pre>
+
+    </div>
+
+    <!-- HTML -->
+    <div>
+
+      <div class="mb-3 flex items-center gap-3">
+        <div
+          class="rounded-lg bg-orange-500/10
+                 px-3 py-1 text-sm font-medium text-orange-300"
+        >
+          HTML Template
+        </div>
+      </div>
+
+      <!-- <pre
+        class="overflow-x-auto rounded-2xl
+               border border-white/10
+               bg-[#111827] p-6 text-sm
+               leading-7 text-slate-300"
+      ><code>&lt;div&gt;
+  &lt;h1&gt;Welcome, &#123;&#123; userName &#125;&#125;!&lt;/h1&gt;
+&lt;/div&gt;
+</code></pre> -->
+
+    </div>
+
+  </section>
+
+  <!-- LIFECYCLE -->
+  <section
+    class="rounded-[28px] border border-white/10
+           bg-white/5 p-8 backdrop-blur-xl"
+  >
+
+    <div class="mb-8">
+
+      <h2 class="text-3xl font-bold text-white">
+        2. Component Lifecycle Hooks
+      </h2>
+
+      <p class="mt-3 max-w-3xl text-slate-400">
+        Angular lifecycle hooks are methods called automatically by Angular
+        during different phases of a component’s lifecycle.
+      </p>
+
+    </div>
+
+    <div class="overflow-hidden rounded-3xl border border-white/10">
+
+      <table class="w-full overflow-hidden">
+
+        <thead class="bg-white/10 text-left">
+
+          <tr>
+            <th class="px-6 py-4 text-sm font-semibold text-cyan-300">
+              Hook
+            </th>
+
+            <th class="px-6 py-4 text-sm font-semibold text-cyan-300">
+              Purpose
+            </th>
+          </tr>
+
+        </thead>
+
+        <tbody class="divide-y divide-white/10">
+
+          <tr class="bg-white/[0.02]">
+            <td class="px-6 py-4 font-medium text-white">
+              constructor()
+            </td>
+
+            <td class="px-6 py-4 text-slate-300">
+              Dependency injection and basic class initialization.
+            </td>
+          </tr>
+
+          <tr>
+            <td class="px-6 py-4 font-medium text-white">
+              ngOnInit()
+            </td>
+
+            <td class="px-6 py-4 text-slate-300">
+              Runs after Angular initializes component inputs.
+              Commonly used for API calls and initialization logic.
+            </td>
+          </tr>
+
+          <tr class="bg-white/[0.02]">
+            <td class="px-6 py-4 font-medium text-white">
+              ngOnChanges()
+            </td>
+
+            <td class="px-6 py-4 text-slate-300">
+              Detects changes to input properties.
+            </td>
+          </tr>
+
+          <tr>
+            <td class="px-6 py-4 font-medium text-white">
+              ngAfterViewInit()
+            </td>
+
+            <td class="px-6 py-4 text-slate-300">
+              Runs after component view and child views are initialized.
+              Useful for DOM access and ViewChild interactions.
+            </td>
+          </tr>
+
+          <tr class="bg-white/[0.02]">
+            <td class="px-6 py-4 font-medium text-white">
+              ngOnDestroy()
+            </td>
+
+            <td class="px-6 py-4 text-slate-300">
+              Cleanup logic such as unsubscribing from observables.
+            </td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </section>
+
+  <!-- SMART VS DUMB -->
+  <section
+    class="rounded-[28px] border border-white/10
+           bg-white/5 p-8 backdrop-blur-xl"
+  >
+
+    <div class="mb-8">
+
+      <h2 class="text-3xl font-bold text-white">
+        3. Smart vs Dumb Components
+      </h2>
+
+      <p class="mt-3 text-slate-400">
+        A very important architectural concept in Angular applications.
+      </p>
+
+    </div>
+
+    <div class="grid gap-6 lg:grid-cols-2">
+
+      <!-- SMART -->
+      <div
+        class="rounded-3xl border border-cyan-400/20
+               bg-cyan-500/5 p-8"
+      >
+
+        <div class="mb-5 flex items-center gap-3">
+
+          <div
+            class="flex h-12 w-12 items-center
+                   justify-center rounded-2xl
+                   bg-cyan-500/10 text-2xl"
+          >
+            🧠
+          </div>
+
+          <h3 class="text-2xl font-bold text-cyan-300">
+            Smart Components
+          </h3>
+
+        </div>
+
+        <ul class="space-y-4 text-slate-300">
+
+          <li>✔️ Manage state & business logic</li>
+          <li>✔️ Fetch data from APIs</li>
+          <li>✔️ Handle user interactions</li>
+          <li>✔️ Usually page-level components</li>
+
+        </ul>
+
+      </div>
+
+      <!-- DUMB -->
+      <div
+        class="rounded-3xl border border-pink-400/20
+               bg-pink-500/5 p-8"
+      >
+
+        <div class="mb-5 flex items-center gap-3">
+
+          <div
+            class="flex h-12 w-12 items-center
+                   justify-center rounded-2xl
+                   bg-pink-500/10 text-2xl"
+          >
+            🎨
+          </div>
+
+          <h3 class="text-2xl font-bold text-pink-300">
+            Dumb Components
+          </h3>
+
+        </div>
+
+        <ul class="space-y-4 text-slate-300">
+
+          <li>✔️ Display UI only</li>
+          <li>✔️ Receive data using <code>@Input()</code></li>
+          <li>✔️ Emit events using <code>@Output()</code></li>
+          <li>✔️ Highly reusable components</li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- INTERVIEW QUESTIONS -->
+  <section
+    class="rounded-[28px] border border-white/10
+           bg-gradient-to-br from-indigo-950
+           via-slate-900 to-slate-950 p-8"
+  >
+
+    <div class="mb-10">
+
+      <h2 class="text-4xl font-black text-white">
+        Interview Questions
+      </h2>
+
+      <p class="mt-3 text-slate-400">
+        Important Angular component interview concepts you should know.
+      </p>
+
+    </div>
+
+    <div class="space-y-6">
+
+      <!-- QUESTION -->
+      <div
+        class="rounded-3xl border border-white/10
+               bg-white/[0.03] p-6"
+      >
+
+        <h3 class="text-xl font-bold text-cyan-300">
+          1. What is the purpose of the @Component decorator?
+        </h3>
+
+        <p class="mt-4 leading-8 text-slate-300">
+          The <code>@Component</code> decorator marks a TypeScript class as an
+          Angular component and provides metadata that tells Angular how the
+          component should behave, render, and be used.
+        </p>
+
+        <ul class="mt-5 space-y-2 text-slate-300">
+
+          <li>✔️ Defines selector</li>
+          <li>✔️ Connects template</li>
+          <li>✔️ Applies styles</li>
+          <li>✔️ Configures encapsulation and animations</li>
+
+        </ul>
+
+      </div>
+
+      <!-- QUESTION -->
+      <div
+        class="rounded-3xl border border-white/10
+               bg-white/[0.03] p-6"
+      >
+
+        <h3 class="text-xl font-bold text-cyan-300">
+          2. Difference between a Component and a Directive?
+        </h3>
+
+        <p class="mt-4 leading-8 text-slate-300">
+          Components control a portion of the UI and always have a template,
+          while directives are used to add behavior to existing DOM elements.
+        </p>
+
+        <div class="mt-5 rounded-2xl bg-black/30 p-5 text-slate-300">
+          Example:
+          <code>*ngIf</code>,
+          <code>*ngFor</code>,
+          and custom attribute directives.
+        </div>
+
+      </div>
+
+      <!-- QUESTION -->
+      <div
+        class="rounded-3xl border border-white/10
+               bg-white/[0.03] p-6"
+      >
+
+        <h3 class="text-xl font-bold text-cyan-300">
+          3. When would you use ngAfterViewInit instead of ngOnInit?
+        </h3>
+
+        <p class="mt-4 leading-8 text-slate-300">
+          Use <code>ngAfterViewInit()</code> when you need access to the DOM,
+          child components, or <code>@ViewChild</code> references because the
+          component view must be fully initialized first.
+        </p>
+
+      </div>
+
+      <!-- QUESTION -->
+      <div
+        class="rounded-3xl border border-white/10
+               bg-white/[0.03] p-6"
+      >
+
+        <h3 class="text-xl font-bold text-cyan-300">
+          4. Difference between constructor(), ngOnInit(), and ngAfterViewInit()?
+        </h3>
+
+        <div class="mt-6 grid gap-5 lg:grid-cols-3">
+
+          <div
+            class="rounded-2xl border border-blue-400/20
+                   bg-blue-500/5 p-5"
+          >
+
+            <h4 class="text-lg font-bold text-blue-300">
+              constructor()
+            </h4>
+
+            <p class="mt-3 text-slate-300">
+              Used for dependency injection and basic class initialization.
+              It is a TypeScript feature, not Angular-specific.
+            </p>
+
+          </div>
+
+          <div
+            class="rounded-2xl border border-green-400/20
+                   bg-green-500/5 p-5"
+          >
+
+            <h4 class="text-lg font-bold text-green-300">
+              ngOnInit()
+            </h4>
+
+            <p class="mt-3 text-slate-300">
+              Runs after Angular initializes input properties.
+              Used for initialization logic and API calls.
+            </p>
+
+          </div>
+
+          <div
+            class="rounded-2xl border border-purple-400/20
+                   bg-purple-500/5 p-5"
+          >
+
+            <h4 class="text-lg font-bold text-purple-300">
+              ngAfterViewInit()
+            </h4>
+
+            <p class="mt-3 text-slate-300">
+              Runs after the component view and child views are initialized.
+              Used for DOM manipulation and ViewChild access.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</div>

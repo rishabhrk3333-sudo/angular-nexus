@@ -1,0 +1,772 @@
+<div class="mx-auto max-w-7xl space-y-10 pb-20">
+
+  <!-- HERO -->
+  <section
+    class="relative overflow-hidden rounded-[32px]
+           border border-white/10
+           bg-gradient-to-br from-indigo-950
+           via-slate-900 to-cyan-950
+           p-10 shadow-2xl backdrop-blur-xl"
+  >
+
+    <div
+      class="absolute inset-0
+             bg-[radial-gradient(circle_at_top_right,rgba(34,211,238,0.15),transparent_30%)]"
+    ></div>
+
+    <div class="relative z-10">
+
+      <div
+        class="mb-4 inline-flex items-center gap-2
+               rounded-full border border-cyan-400/20
+               bg-cyan-400/10 px-4 py-2
+               text-sm font-medium text-cyan-300"
+      >
+        <span class="h-2 w-2 rounded-full bg-cyan-400"></span>
+        Angular Basics
+      </div>
+
+      <h1
+        class="max-w-5xl text-5xl font-black
+               leading-tight text-white md:text-6xl"
+      >
+        Angular
+        <span
+          class="bg-gradient-to-r from-cyan-400
+                 via-blue-400 to-indigo-500
+                 bg-clip-text text-transparent"
+        >
+          Data Binding
+        </span>
+      </h1>
+
+      <p
+        class="mt-6 max-w-4xl text-lg
+               leading-relaxed text-slate-300"
+      >
+        Data Binding is the connection between the component (class)
+        and the template (view). It allows data to flow from the component
+        to the view, from the view to the component, or both.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- TYPES TABLE -->
+  <section
+    class="rounded-[28px] border border-white/10
+           bg-white/5 p-8 backdrop-blur-xl"
+  >
+
+    <div class="mb-8">
+
+      <h2 class="text-3xl font-bold text-white">
+        Types of Data Binding in Angular
+      </h2>
+
+      <p class="mt-3 text-slate-400">
+        Angular provides four major types of data binding.
+      </p>
+
+    </div>
+
+    <div class="overflow-hidden rounded-3xl border border-white/10">
+
+      <table class="w-full overflow-hidden">
+
+        <thead class="bg-white/10">
+
+          <tr>
+
+            <th class="px-6 py-4 text-left text-sm font-semibold text-cyan-300">
+              Binding Type
+            </th>
+
+            <th class="px-6 py-4 text-left text-sm font-semibold text-cyan-300">
+              Syntax
+            </th>
+
+            <th class="px-6 py-4 text-left text-sm font-semibold text-cyan-300">
+              Direction
+            </th>
+
+            <th class="px-6 py-4 text-left text-sm font-semibold text-cyan-300">
+              Use Case
+            </th>
+
+            <th class="px-6 py-4 text-left text-sm font-semibold text-cyan-300">
+              Example
+            </th>
+
+          </tr>
+
+        </thead>
+
+        <tbody class="divide-y divide-white/10">
+
+          <tr class="bg-white/[0.02]">
+
+            <td class="px-6 py-4 font-medium text-white">
+              Interpolation
+            </td>
+
+            <td class="px-6 py-4 text-cyan-300">
+              {{ '{{ expression }}' }}
+            </td>
+
+            <td class="px-6 py-4 text-slate-300">
+              Component → View
+            </td>
+
+            <td class="px-6 py-4 text-slate-300">
+              Display dynamic values
+            </td>
+
+            <td class="px-6 py-4 text-slate-300">
+              Welcome, {{ '{{ user.name }}' }}
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td class="px-6 py-4 font-medium text-white">
+              Property Binding
+            </td>
+
+            <td class="px-6 py-4 text-cyan-300">
+              [property]="expression"
+            </td>
+
+            <td class="px-6 py-4 text-slate-300">
+              Component → View
+            </td>
+
+            <td class="px-6 py-4 text-slate-300">
+              Set element properties
+            </td>
+
+            <td class="px-6 py-4 text-slate-300">
+              &lt;img [src]="imageUrl"&gt;
+            </td>
+
+          </tr>
+
+          <tr class="bg-white/[0.02]">
+
+            <td class="px-6 py-4 font-medium text-white">
+              Event Binding
+            </td>
+
+            <td class="px-6 py-4 text-cyan-300">
+              (event)="handler()"
+            </td>
+
+            <td class="px-6 py-4 text-slate-300">
+              View → Component
+            </td>
+
+            <td class="px-6 py-4 text-slate-300">
+              Respond to user events
+            </td>
+
+            <td class="px-6 py-4 text-slate-300">
+              &lt;button (click)="save()"&gt;
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td class="px-6 py-4 font-medium text-white">
+              Two-Way Binding
+            </td>
+
+            <td class="px-6 py-4 text-cyan-300">
+              [(ngModel)]="property"
+            </td>
+
+            <td class="px-6 py-4 text-slate-300">
+              Component ↔ View
+            </td>
+
+            <td class="px-6 py-4 text-slate-300">
+              Sync form inputs
+            </td>
+
+            <td class="px-6 py-4 text-slate-300">
+              &lt;input [(ngModel)]="username"&gt;
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </section>
+
+  <!-- INTERPOLATION -->
+  <section
+    class="rounded-[28px] border border-cyan-400/10
+           bg-cyan-500/[0.03] p-8"
+  >
+
+    <div class="mb-8 flex items-center gap-4">
+
+      <div
+        class="flex h-14 w-14 items-center justify-center
+               rounded-2xl bg-cyan-500/10 text-3xl"
+      >
+        🔄
+      </div>
+
+      <div>
+
+        <h2 class="text-3xl font-bold text-white">
+          1. Interpolation ({{ '{{ }}' }})
+        </h2>
+
+        <p class="mt-2 text-slate-400">
+          Displays dynamic data inside templates.
+        </p>
+
+      </div>
+
+    </div>
+
+    <div class="grid gap-6 lg:grid-cols-2">
+
+      <div
+        class="rounded-2xl border border-white/10
+               bg-slate-950/80 p-6"
+      >
+
+        <h3 class="mb-4 text-xl font-bold text-cyan-300">
+          Key Features
+        </h3>
+
+        <ul class="space-y-4 text-slate-300">
+
+          <li>✔️ Supports expressions</li>
+          <li>✔️ Auto-updates UI</li>
+          <li>✔️ Escapes HTML for security</li>
+          <li>✔️ Supports Angular Pipes</li>
+
+        </ul>
+
+      </div>
+
+      <div
+        class="rounded-2xl border border-white/10
+               bg-[#0f172a] p-6"
+      >
+
+        <div
+          class="mb-4 inline-flex rounded-lg
+                 bg-cyan-500/10 px-3 py-1
+                 text-sm text-cyan-300"
+        >
+          Example
+        </div>
+
+        <pre
+          class="overflow-x-auto text-sm
+                 leading-7 text-slate-300"
+        ><code>// Component
+export class UserProfileComponent &#123;
+  user = &#123;
+    name: 'Alex',
+    score: 95
+  &#125;;
+&#125;
+
+<!-- // Template
+&lt;p&gt;Hello, &#123;&#123; user.name &#125;&#125;!&lt;/p&gt;
+&lt;p&gt;Score: &#123;&#123; user.score &#125;&#125;/100&lt;/p&gt; -->
+</code></pre>
+
+      </div>
+
+    </div>
+
+    <!-- INTERVIEW -->
+    <div
+      class="mt-8 rounded-3xl border border-cyan-400/20
+             bg-cyan-500/5 p-6"
+    >
+
+      <h3 class="text-xl font-bold text-cyan-300">
+        Interview Question
+      </h3>
+
+      <p class="mt-4 text-lg font-semibold text-white">
+        What happens if you put an assignment inside interpolation?
+      </p>
+
+      <p class="mt-4 leading-8 text-slate-300">
+        Angular throws an error because interpolation only supports expressions,
+        not statements like assignments.
+      </p>
+
+      <div
+        class="mt-5 rounded-2xl bg-black/30 p-4
+               font-mono text-red-300"
+      >
+        ❌ {{ '{{ x = 5 }}' }} is invalid
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PROPERTY BINDING -->
+  <section
+    class="rounded-[28px] border border-purple-400/10
+           bg-purple-500/[0.03] p-8"
+  >
+
+    <div class="mb-8">
+
+      <h2 class="text-3xl font-bold text-white">
+        2. Property Binding ([ ])
+      </h2>
+
+      <p class="mt-3 max-w-4xl text-slate-400">
+        Property binding sets values for HTML element properties,
+        directives, and child component inputs.
+      </p>
+
+    </div>
+
+    <div class="grid gap-6 lg:grid-cols-2">
+
+      <div
+        class="rounded-2xl border border-white/10
+               bg-slate-950/80 p-6"
+      >
+
+        <h3 class="mb-4 text-xl font-bold text-purple-300">
+          Common Use Cases
+        </h3>
+
+        <ul class="space-y-4 text-slate-300">
+
+          <li>✔️ Image source binding</li>
+          <li>✔️ Enable/disable buttons</li>
+          <li>✔️ Pass data to child components</li>
+          <li>✔️ Dynamic styles & classes</li>
+
+        </ul>
+
+      </div>
+
+      <div
+        class="rounded-2xl border border-white/10
+               bg-[#111827] p-6"
+      >
+
+        <pre
+          class="overflow-x-auto text-sm
+                 leading-7 text-slate-300"
+        ><code>// Component
+export class DashboardComponent &#123;
+  chartOptions = &#123;
+    responsive: true
+  &#125;;
+
+  isAdmin = true;
+&#125;
+
+&lt;app-chart [options]="chartOptions"&gt;
+&lt;/app-chart&gt;
+
+&lt;button [disabled]="!isAdmin"&gt;
+  Delete Account
+&lt;/button&gt;
+</code></pre>
+
+      </div>
+
+    </div>
+
+    <div
+      class="mt-8 rounded-3xl border border-purple-400/20
+             bg-purple-500/5 p-6"
+    >
+
+      <h3 class="text-xl font-bold text-purple-300">
+        Interview Question
+      </h3>
+
+      <p class="mt-4 text-lg font-semibold text-white">
+        When would you use attribute binding vs property binding?
+      </p>
+
+      <p class="mt-4 leading-8 text-slate-300">
+        Use <code>[attr.some-attr]</code> when setting HTML attributes,
+        and use property binding for DOM properties.
+      </p>
+
+      <div
+        class="mt-5 rounded-2xl bg-black/30 p-4
+               font-mono text-cyan-300"
+      >
+        [attr.aria-label] vs [value]
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- EVENT BINDING -->
+  <section
+    class="rounded-[28px] border border-pink-400/10
+           bg-pink-500/[0.03] p-8"
+  >
+
+    <div class="mb-8">
+
+      <h2 class="text-3xl font-bold text-white">
+        3. Event Binding (( ))
+      </h2>
+
+      <p class="mt-3 text-slate-400">
+        Event binding listens for user interactions and triggers component methods.
+      </p>
+
+    </div>
+
+    <div class="grid gap-6 lg:grid-cols-2">
+
+      <div
+        class="rounded-2xl border border-white/10
+               bg-slate-950/80 p-6"
+      >
+
+        <h3 class="mb-5 text-xl font-bold text-pink-300">
+          Common Events
+        </h3>
+
+        <div class="space-y-4">
+
+          <div
+            class="flex items-center justify-between
+                   rounded-xl bg-white/[0.03] p-4"
+          >
+            <span class="font-medium text-white">
+              click
+            </span>
+
+            <code class="text-pink-300">
+              (click)="save()"
+            </code>
+          </div>
+
+          <div
+            class="flex items-center justify-between
+                   rounded-xl bg-white/[0.03] p-4"
+          >
+            <span class="font-medium text-white">
+              keyup
+            </span>
+
+            <code class="text-pink-300">
+              (keyup.enter)="search()"
+            </code>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div
+        class="rounded-2xl border border-white/10
+               bg-[#111827] p-6"
+      >
+
+        <pre
+          class="overflow-x-auto text-sm
+                 leading-7 text-slate-300"
+        ><code>// Component
+export class SearchComponent &#123;
+
+  searchTerm = '';
+
+  onSearch() &#123;
+    // API call
+  &#125;
+&#125;
+
+&lt;input
+  (keyup.enter)="onSearch()"
+  [(ngModel)]="searchTerm"
+/&gt;
+</code></pre>
+
+      </div>
+
+    </div>
+
+    <div
+      class="mt-8 rounded-3xl border border-pink-400/20
+             bg-pink-500/5 p-6"
+    >
+
+      <h3 class="text-xl font-bold text-pink-300">
+        Interview Question
+      </h3>
+
+      <p class="mt-4 text-lg font-semibold text-white">
+        How would you prevent multiple button clicks?
+      </p>
+
+      <pre
+        class="mt-5 overflow-x-auto rounded-2xl
+               bg-black/30 p-5 text-sm
+               leading-7 text-slate-300"
+      ><code>&lt;button
+  (click)="save()"
+  [disabled]="isSaving"
+&gt;
+  Save
+&lt;/button&gt;
+
+isSaving = false;
+
+save() &#123;
+  this.isSaving = true;
+
+  this.service.save()
+    .finally(() =&gt; &#123;
+      this.isSaving = false;
+    &#125;);
+&#125;
+</code></pre>
+
+    </div>
+
+  </section>
+
+  <!-- TWO WAY -->
+  <section
+    class="rounded-[28px] border border-emerald-400/10
+           bg-emerald-500/[0.03] p-8"
+  >
+
+    <div class="mb-8">
+
+      <h2 class="text-3xl font-bold text-white">
+        4. Two-Way Binding
+      </h2>
+
+      <p class="mt-3 text-slate-400">
+        Synchronizes data between component and template instantly.
+      </p>
+
+    </div>
+
+    <div class="grid gap-6 lg:grid-cols-2">
+
+      <div
+        class="rounded-2xl border border-white/10
+               bg-slate-950/80 p-6"
+      >
+
+        <h3 class="mb-5 text-xl font-bold text-emerald-300">
+          Key Concepts
+        </h3>
+
+        <ul class="space-y-4 text-slate-300">
+
+          <li>✔️ Combines property + event binding</li>
+          <li>✔️ Keeps form values synchronized</li>
+          <li>✔️ Uses <code>ngModel</code></li>
+          <li>✔️ Requires FormsModule</li>
+
+        </ul>
+
+      </div>
+
+      <div
+        class="rounded-2xl border border-white/10
+               bg-[#111827] p-6"
+      >
+
+        <pre
+          class="overflow-x-auto text-sm
+                 leading-7 text-slate-300"
+        ><code>import &#123; FormsModule &#125;
+from '@angular/forms';
+
+&lt;input
+  [(ngModel)]="username"
+/&gt;
+
+&lt;app-search
+  [(query)]="searchText"
+&gt;
+&lt;/app-search&gt;
+</code></pre>
+
+      </div>
+
+    </div>
+
+    <div
+      class="mt-8 rounded-3xl border border-emerald-400/20
+             bg-emerald-500/5 p-6"
+    >
+
+      <h3 class="text-xl font-bold text-emerald-300">
+        Under the Hood of ngModel
+      </h3>
+
+      <pre
+        class="mt-5 overflow-x-auto rounded-2xl
+               bg-black/30 p-5 text-sm
+               leading-7 text-slate-300"
+      ><code>&lt;input
+  [ngModel]="value"
+  (ngModelChange)="value = $event"
+/&gt;
+</code></pre>
+
+    </div>
+
+  </section>
+
+  <!-- PERFORMANCE -->
+  <section
+    class="rounded-[28px] border border-yellow-400/10
+           bg-yellow-500/[0.03] p-8"
+  >
+
+    <div class="mb-8">
+
+      <h2 class="text-3xl font-bold text-white">
+        5. Performance Considerations
+      </h2>
+
+      <p class="mt-3 text-slate-400">
+        Optimizing data binding improves Angular application performance.
+      </p>
+
+    </div>
+
+    <div class="grid gap-6 lg:grid-cols-2">
+
+      <div
+        class="rounded-2xl border border-white/10
+               bg-slate-950/80 p-6"
+      >
+
+        <h3 class="mb-5 text-xl font-bold text-yellow-300">
+          Change Detection Strategies
+        </h3>
+
+        <ul class="space-y-4 text-slate-300">
+
+          <li>✔️ Default Strategy</li>
+          <li>✔️ OnPush Strategy</li>
+          <li>✔️ Async Pipe Optimization</li>
+          <li>✔️ trackBy with ngFor</li>
+
+        </ul>
+
+      </div>
+
+      <div
+        class="rounded-2xl border border-white/10
+               bg-[#111827] p-6"
+      >
+
+        <pre
+          class="overflow-x-auto text-sm
+                 leading-7 text-slate-300"
+        ><code>@Component(&#123;
+  changeDetection:
+    ChangeDetectionStrategy.OnPush
+&#125;)
+</code></pre>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FINAL INTERVIEW -->
+  <section
+    class="rounded-[28px] border border-white/10
+           bg-gradient-to-br from-slate-950
+           via-indigo-950 to-slate-900 p-8"
+  >
+
+    <div class="mb-8">
+
+      <h2 class="text-4xl font-black text-white">
+        Important Interview Questions
+      </h2>
+
+    </div>
+
+    <div class="space-y-6">
+
+      <div
+        class="rounded-3xl border border-white/10
+               bg-white/[0.03] p-6"
+      >
+
+        <h3 class="text-xl font-bold text-cyan-300">
+          Difference between (click) and onclick?
+        </h3>
+
+        <p class="mt-4 leading-8 text-slate-300">
+          <code>(click)</code> is Angular’s event binding system integrated
+          with change detection, while <code>onclick</code> is native DOM behavior.
+        </p>
+
+      </div>
+
+      <div
+        class="rounded-3xl border border-white/10
+               bg-white/[0.03] p-6"
+      >
+
+        <h3 class="text-xl font-bold text-cyan-300">
+          Why avoid complex logic in templates?
+        </h3>
+
+        <p class="mt-4 leading-8 text-slate-300">
+          Complex expressions run during every change detection cycle
+          and can negatively affect performance.
+        </p>
+
+      </div>
+
+      <div
+        class="rounded-3xl border border-white/10
+               bg-white/[0.03] p-6"
+      >
+
+        <h3 class="text-xl font-bold text-cyan-300">
+          Template Reference Variable vs Two-Way Binding?
+        </h3>
+
+        <p class="mt-4 leading-8 text-slate-300">
+          Template reference variables are useful for one-time DOM access,
+          while two-way binding is used for continuous synchronization
+          between forms and component state.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</div>

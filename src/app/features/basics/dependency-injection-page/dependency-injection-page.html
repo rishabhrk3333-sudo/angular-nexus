@@ -1,0 +1,295 @@
+<div class="mx-auto max-w-7xl space-y-10 pb-20">
+
+    <!-- HERO -->
+    <section class="relative overflow-hidden rounded-[32px]
+           border border-white/10
+           bg-gradient-to-br from-cyan-950
+           via-slate-900 to-blue-950
+           p-10 shadow-2xl">
+
+        <div class="absolute inset-0
+             bg-[radial-gradient(circle_at_top_right,rgba(34,211,238,0.15),transparent_30%)]"></div>
+
+        <div class="relative z-10">
+
+            <div class="inline-flex items-center gap-2
+               rounded-full border border-cyan-400/20
+               bg-cyan-400/10 px-4 py-2
+               text-sm font-medium text-cyan-300">
+                <span class="h-2 w-2 rounded-full bg-cyan-400"></span>
+                {{ hero.badge }}
+            </div>
+
+            <h1 class="mt-6 text-5xl font-black
+               leading-tight text-white md:text-6xl">
+                {{ hero.title }}
+            </h1>
+
+            <p class="mt-6 max-w-4xl text-lg
+               leading-relaxed text-slate-300">
+                {{ hero.subtitle }}
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- WHAT IS DI -->
+    <section class="rounded-[28px] border border-white/10
+           bg-white/5 p-8 backdrop-blur-xl">
+
+        <h2 class="text-3xl font-bold text-white">
+            {{ whatIsDi.title }}
+        </h2>
+
+        <p class="mt-6 whitespace-pre-line
+             text-lg leading-9 text-slate-300">
+            {{ whatIsDi.description }}
+        </p>
+
+    </section>
+
+    <!-- BENEFITS -->
+    <section class="rounded-[28px] border border-white/10
+           bg-slate-950/80 p-8">
+
+        <div class="mb-10">
+
+            <h2 class="text-4xl font-black text-white">
+                Benefits of Dependency Injection
+            </h2>
+
+            <p class="mt-3 text-slate-400">
+                Why Angular applications heavily rely on DI.
+            </p>
+
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+
+            @for (item of benefits; track item.title) {
+
+            <div class="rounded-3xl border border-white/10
+                 bg-white/[0.03] p-6">
+
+                <div class="text-5xl">
+                    {{ item.icon }}
+                </div>
+
+                <h3 class="mt-5 text-2xl font-bold text-white">
+                    {{ item.title }}
+                </h3>
+
+                <p class="mt-4 leading-8 text-slate-300">
+                    {{ item.description }}
+                </p>
+
+            </div>
+
+            }
+
+        </div>
+
+    </section>
+
+    <!-- STEPS -->
+    <section class="rounded-[28px] border border-white/10
+           bg-gradient-to-br from-slate-950
+           via-cyan-950 to-slate-900 p-8">
+
+        <div class="mb-10">
+
+            <h2 class="text-4xl font-black text-white">
+                How Dependency Injection Works
+            </h2>
+
+        </div>
+
+        <div class="space-y-6">
+
+            @for (step of steps; track step.title) {
+
+            <div class="rounded-3xl border border-cyan-400/20
+                 bg-cyan-500/[0.04] p-8">
+
+                <div class="flex items-center gap-5">
+
+                    <div class="flex h-14 w-14 items-center
+                     justify-center rounded-2xl
+                     bg-cyan-500/10 text-xl
+                     font-bold text-cyan-300">
+                        {{ step.step }}
+                    </div>
+
+                    <h3 class="text-2xl font-bold text-cyan-300">
+                        {{ step.title }}
+                    </h3>
+
+                </div>
+
+                <pre class="mt-6 overflow-x-auto rounded-2xl
+                   border border-white/10
+                   bg-[#111827] p-6 text-sm
+                   leading-8 text-slate-300"><code>{{ step.code }}</code></pre>
+
+            </div>
+
+            }
+
+        </div>
+
+    </section>
+
+    <!-- SERVICE EXAMPLE -->
+    <section class="grid gap-6 xl:grid-cols-2">
+
+        <!-- SERVICE -->
+        <div class="rounded-[28px] border border-emerald-400/20
+             bg-emerald-500/[0.04] p-8">
+
+            <h2 class="text-3xl font-bold text-emerald-300">
+                Service Example
+            </h2>
+
+            <pre class="mt-6 overflow-x-auto rounded-2xl
+               border border-white/10
+               bg-[#111827] p-6 text-sm
+               leading-8 text-slate-300"><code>{{ serviceExample }}</code></pre>
+
+        </div>
+
+        <!-- COMPONENT -->
+        <div class="rounded-[28px] border border-pink-400/20
+             bg-pink-500/[0.04] p-8">
+
+            <h2 class="text-3xl font-bold text-pink-300">
+                Component Injection Example
+            </h2>
+
+            <pre class="mt-6 overflow-x-auto rounded-2xl
+               border border-white/10
+               bg-[#111827] p-6 text-sm
+               leading-8 text-slate-300"><code>{{ componentExample }}</code></pre>
+
+        </div>
+
+    </section>
+
+    <!-- PROVIDERS -->
+    <section class="rounded-[28px] border border-white/10
+           bg-white/5 p-8">
+
+        <div class="mb-10">
+
+            <h2 class="text-4xl font-black text-white">
+                Provider Types
+            </h2>
+
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-2">
+
+            @for (provider of providerTypes; track provider.title) {
+
+            <div class="rounded-3xl border border-white/10
+                 bg-white/[0.03] p-6">
+
+                <div class="text-4xl">
+                    {{ provider.icon }}
+                </div>
+
+                <h3 class="mt-5 text-2xl font-bold text-white">
+                    {{ provider.title }}
+                </h3>
+
+                <p class="mt-4 leading-8 text-slate-300">
+                    {{ provider.description }}
+                </p>
+
+                <pre class="mt-6 overflow-x-auto rounded-2xl
+                   bg-black/30 p-5 text-sm
+                   text-cyan-300"><code>{{ provider.code }}</code></pre>
+
+            </div>
+
+            }
+
+        </div>
+
+    </section>
+
+    <!-- ADVANCED TIPS -->
+    <section class="rounded-[28px] border border-yellow-400/10
+           bg-yellow-500/[0.03] p-8">
+
+        <div class="mb-8">
+
+            <h2 class="text-3xl font-bold text-white">
+                Senior-Level Best Practices
+            </h2>
+
+        </div>
+
+        <div class="grid gap-4 md:grid-cols-2">
+
+            @for (tip of advancedTips; track tip) {
+
+            <div class="rounded-2xl border border-yellow-400/20
+                 bg-yellow-500/[0.04] p-5">
+
+                <p class="text-lg text-slate-300">
+                    ✔️ {{ tip }}
+                </p>
+
+            </div>
+
+            }
+
+        </div>
+
+    </section>
+
+    <!-- INTERVIEW QUESTIONS -->
+    <section class="rounded-[28px] border border-white/10
+           bg-gradient-to-br from-slate-950
+           via-indigo-950 to-slate-900 p-8">
+
+        <div class="mb-10">
+
+            <h2 class="text-4xl font-black text-white">
+                Interview Questions
+            </h2>
+
+            <p class="mt-3 text-slate-400">
+                Important Angular Dependency Injection concepts.
+            </p>
+
+        </div>
+
+        <div class="space-y-6">
+
+            @for (
+            question of interviewQuestions;
+            track question.question
+            ) {
+
+            <div class="rounded-3xl border border-white/10
+                 bg-white/[0.03] p-6">
+
+                <h3 class="text-xl font-bold text-cyan-300">
+                    {{ question.question }}
+                </h3>
+
+                <p class="mt-4 leading-8 text-slate-300">
+                    {{ question.answer }}
+                </p>
+
+            </div>
+
+            }
+
+        </div>
+
+    </section>
+
+</div>
