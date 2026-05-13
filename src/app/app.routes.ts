@@ -21,6 +21,13 @@ export const routes: Routes = [
                     ),
             },
             {
+                path: 'intermediate',
+                loadChildren: () =>
+                    import('./features/intermediate/intermediate.routes').then(
+                        (m) => m.INTERMEDIATE_ROUTES
+                    ),
+            },
+            {
                 path: '',
                 redirectTo: 'dashboard',
                 pathMatch: 'full',

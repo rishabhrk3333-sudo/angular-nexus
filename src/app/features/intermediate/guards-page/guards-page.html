@@ -1,0 +1,461 @@
+<div class="mx-auto max-w-7xl space-y-10 pb-20">
+
+    <!-- HERO -->
+    <section class="relative overflow-hidden rounded-[32px]
+           border border-white/10
+           bg-gradient-to-br from-slate-950
+           via-blue-950 to-cyan-950
+           p-10 shadow-2xl">
+
+        <div class="absolute inset-0
+             bg-[radial-gradient(circle_at_top_right,rgba(34,211,238,0.18),transparent_30%)]"></div>
+
+        <div class="relative z-10">
+
+            <div class="inline-flex items-center gap-2
+               rounded-full border border-cyan-400/20
+               bg-cyan-400/10 px-4 py-2
+               text-sm font-medium text-cyan-300">
+                <span class="h-2 w-2 rounded-full bg-cyan-400"></span>
+                Intermediate Angular
+            </div>
+
+            <h1 class="mt-6 text-5xl font-black
+               leading-tight text-white
+               md:text-6xl">
+                Angular Route Guards
+            </h1>
+
+            <p class="mt-6 max-w-4xl text-lg
+               leading-relaxed text-slate-300">
+                Guards help protect routes, control access,
+                and improve application security in Angular.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- AUTH VS AUTHORIZATION -->
+    <section class="rounded-[28px]
+           border border-white/10
+           bg-white/5 p-8 backdrop-blur-xl">
+
+        <h2 class="text-4xl font-black text-white">
+            Authentication vs Authorization
+        </h2>
+
+        <div class="mt-10 grid gap-6 lg:grid-cols-2">
+
+            <!-- AUTHENTICATION -->
+            <div class="rounded-3xl border
+               border-cyan-400/20
+               bg-cyan-500/[0.04] p-8">
+
+                <h3 class="mt-6 text-3xl font-bold text-white">
+                    Authentication
+                </h3>
+
+                <p class="mt-5 leading-8 text-slate-300">
+                    Authentication verifies the identity of the user.
+                    Example: Logging into an application using
+                    username and password.
+                </p>
+
+            </div>
+
+            <!-- AUTHORIZATION -->
+            <div class="rounded-3xl border
+               border-pink-400/20
+               bg-pink-500/[0.04] p-8">
+
+                <h3 class="mt-6 text-3xl font-bold text-white">
+                    Authorization
+                </h3>
+
+                <p class="mt-5 leading-8 text-slate-300">
+                    Authorization decides what resources
+                    or pages the authenticated user can access.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- WHY GUARDS -->
+    <section class="rounded-[28px]
+           border border-indigo-400/20
+           bg-indigo-500/[0.04] p-8">
+
+        <h2 class="text-4xl font-black text-indigo-300">
+            Why Do We Use Guards?
+        </h2>
+
+        <div class="mt-8 grid gap-5 md:grid-cols-2">
+
+            <div class="rounded-3xl border
+               border-white/10
+               bg-black/20 p-6">
+                <p class="text-lg text-slate-300">
+                    ✔️ Protect routes from unauthorized users
+                </p>
+            </div>
+
+            <div class="rounded-3xl border
+               border-white/10
+               bg-black/20 p-6">
+                <p class="text-lg text-slate-300">
+                    ✔️ Redirect users to login page
+                </p>
+            </div>
+
+            <div class="rounded-3xl border
+               border-white/10
+               bg-black/20 p-6">
+                <p class="text-lg text-slate-300">
+                    ✔️ Restrict access based on roles
+                </p>
+            </div>
+
+            <div class="rounded-3xl border
+               border-white/10
+               bg-black/20 p-6">
+                <p class="text-lg text-slate-300">
+                    ✔️ Prevent lazy-loaded modules from downloading
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- LIVE DEMO -->
+    <section class="rounded-[28px]
+           border border-cyan-400/20
+           bg-gradient-to-br from-cyan-950
+           via-slate-950 to-indigo-950 p-8">
+
+        <div class="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+
+            <div>
+
+                <h2 class="text-4xl font-black text-white">
+                    Route Access Demo
+                </h2>
+
+                <p class="mt-3 text-slate-300">
+                    Simulating route protection using Auth Guards.
+                </p>
+
+            </div>
+
+            <button (click)="toggleLogin()" class="rounded-2xl bg-gradient-to-r
+               from-cyan-500 to-indigo-500
+               px-6 py-4 font-semibold text-white">
+                {{ isLoggedIn() ? 'Logout' : 'Login' }}
+            </button>
+
+        </div>
+
+        <div class="mt-10 rounded-3xl border p-8" [class.border-emerald-400]="isLoggedIn()"
+            [class.bg-emerald-500/10]="isLoggedIn()" [class.border-red-400]="!isLoggedIn()"
+            [class.bg-red-500/10]="!isLoggedIn()">
+
+            @if (isLoggedIn()) {
+
+            <div class="flex items-center gap-4">
+
+                <span class="material-symbols-outlined
+                   text-5xl text-emerald-300">
+                    verified_user
+                </span>
+
+                <div>
+
+                    <h3 class="text-3xl font-bold text-white">
+                        Access Granted
+                    </h3>
+
+                    <p class="mt-2 text-slate-300">
+                        User can enter protected routes.
+                    </p>
+
+                </div>
+
+            </div>
+
+            } @else {
+
+            <div class="flex items-center gap-4">
+
+                <span class="material-symbols-outlined
+                   text-5xl text-red-300">
+                    lock
+                </span>
+
+                <div>
+
+                    <h3 class="text-3xl font-bold text-white">
+                        Access Denied
+                    </h3>
+
+                    <p class="mt-2 text-slate-300">
+                        User redirected to login page.
+                    </p>
+
+                </div>
+
+            </div>
+
+            }
+
+        </div>
+
+    </section>
+
+    <!-- TYPES -->
+    <section class="rounded-[28px]
+           border border-white/10
+           bg-slate-950/80 p-8">
+
+        <div class="mb-10">
+
+            <h2 class="text-4xl font-black text-white">
+                Types of Guards
+            </h2>
+
+        </div>
+
+        <div class="grid gap-6 lg:grid-cols-2">
+
+            @for (
+            item of guardTypes;
+            track item.title
+            ) {
+
+            <div class="rounded-3xl border
+                 border-white/10
+                 bg-white/[0.03] p-8">
+
+
+                <h3 class="mt-6 text-3xl font-bold text-white">
+                    {{ item.title }}
+                </h3>
+
+                <p class="mt-4 leading-8 text-slate-300">
+                    {{ item.description }}
+                </p>
+
+                <div class="mt-6 rounded-2xl
+                   border border-cyan-400/10
+                   bg-cyan-500/[0.04] p-5">
+
+                    <p class="text-sm font-semibold uppercase tracking-widest text-cyan-300">
+                        Example
+                    </p>
+
+                    <p class="mt-2 leading-7 text-slate-300">
+                        {{ item.example }}
+                    </p>
+
+                </div>
+
+            </div>
+
+            }
+
+        </div>
+
+    </section>
+
+    <!-- CODE -->
+    <section class="grid gap-6 xl:grid-cols-2">
+
+        <!-- CAN ACTIVATE -->
+        <div class="rounded-[28px]
+             border border-cyan-400/20
+             bg-cyan-500/[0.04] p-8">
+
+            <h2 class="text-3xl font-bold text-cyan-300">
+                CanActivate Guard
+            </h2>
+
+            <pre class="mt-6 overflow-x-auto rounded-2xl
+               border border-white/10
+               bg-[#111827] p-6 text-sm
+               leading-8 text-slate-300"><code>{{ canActivateCode }}</code></pre>
+
+        </div>
+
+        <!-- ROUTES -->
+        <div class="rounded-[28px]
+             border border-pink-400/20
+             bg-pink-500/[0.04] p-8">
+
+            <h2 class="text-3xl font-bold text-pink-300">
+                Route Configuration
+            </h2>
+
+            <pre class="mt-6 overflow-x-auto rounded-2xl
+               border border-white/10
+               bg-[#111827] p-6 text-sm
+               leading-8 text-slate-300"><code>{{ routesCode }}</code></pre>
+
+        </div>
+
+    </section>
+
+    <!-- ADVANCED -->
+    <section class="grid gap-6 xl:grid-cols-3">
+
+        <!-- CHILD -->
+        <div class="rounded-[28px]
+             border border-yellow-400/20
+             bg-yellow-500/[0.04] p-8">
+
+            <h2 class="text-2xl font-bold text-yellow-300">
+                CanActivateChild
+            </h2>
+
+            <pre class="mt-6 overflow-x-auto rounded-2xl
+               border border-white/10
+               bg-[#111827] p-6 text-sm
+               leading-8 text-slate-300"><code>{{ canActivateChildCode }}</code></pre>
+
+        </div>
+
+        <!-- LOAD -->
+        <div class="rounded-[28px]
+             border border-purple-400/20
+             bg-purple-500/[0.04] p-8">
+
+            <h2 class="text-2xl font-bold text-purple-300">
+                CanLoad
+            </h2>
+
+            <pre class="mt-6 overflow-x-auto rounded-2xl
+               border border-white/10
+               bg-[#111827] p-6 text-sm
+               leading-8 text-slate-300"><code>{{ canLoadCode }}</code></pre>
+
+        </div>
+
+        <!-- DEACTIVATE -->
+        <div class="rounded-[28px]
+             border border-red-400/20
+             bg-red-500/[0.04] p-8">
+
+            <h2 class="text-2xl font-bold text-red-300">
+                CanDeactivate
+            </h2>
+
+            <pre class="mt-6 overflow-x-auto rounded-2xl
+               border border-white/10
+               bg-[#111827] p-6 text-sm
+               leading-8 text-slate-300"><code>{{ canDeactivateCode }}</code></pre>
+
+        </div>
+
+    </section>
+
+    <!-- ROLE GUARD -->
+    <section class="rounded-[28px]
+           border border-emerald-400/20
+           bg-emerald-500/[0.04] p-8">
+
+        <h2 class="text-4xl font-black text-white">
+            Role-Based Authorization
+        </h2>
+
+        <p class="mt-5 text-lg leading-8 text-slate-300">
+            Guards can also restrict routes based on user roles
+            such as admin, editor, or manager.
+        </p>
+
+        <pre class="mt-8 overflow-x-auto rounded-2xl
+             border border-white/10
+             bg-[#111827] p-6 text-sm
+             leading-8 text-slate-300"><code>{{ roleGuardCode }}</code></pre>
+
+    </section>
+
+    <!-- BEST PRACTICES -->
+    <section class="rounded-[28px]
+           border border-emerald-400/20
+           bg-emerald-500/[0.04] p-8">
+
+        <div class="mb-10">
+
+            <h2 class="text-4xl font-black text-white">
+                Best Practices
+            </h2>
+
+        </div>
+
+        <div class="grid gap-4 md:grid-cols-2">
+
+            @for (
+            item of bestPractices;
+            track item
+            ) {
+
+            <div class="rounded-2xl border
+                 border-emerald-400/10
+                 bg-black/20 p-5">
+
+                <p class="text-lg text-slate-300">
+                    ✔️ {{ item }}
+                </p>
+
+            </div>
+
+            }
+
+        </div>
+
+    </section>
+
+    <!-- INTERVIEW QUESTIONS -->
+    <section class="rounded-[28px]
+           border border-white/10
+           bg-gradient-to-br from-slate-950
+           via-indigo-950 to-slate-900 p-8">
+
+        <div class="mb-10">
+
+            <h2 class="text-4xl font-black text-white">
+                Interview Questions
+            </h2>
+
+        </div>
+
+        <div class="space-y-6">
+
+            @for (
+            item of interviewQuestions;
+            track item.question
+            ) {
+
+            <div class="rounded-3xl border
+                 border-white/10
+                 bg-white/[0.03] p-6">
+
+                <h3 class="text-xl font-bold text-cyan-300">
+                    {{ item.question }}
+                </h3>
+
+                <p class="mt-4 leading-8 text-slate-300">
+                    {{ item.answer }}
+                </p>
+
+            </div>
+
+            }
+
+        </div>
+
+    </section>
+
+</div>

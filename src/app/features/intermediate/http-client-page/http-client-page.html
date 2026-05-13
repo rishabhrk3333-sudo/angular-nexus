@@ -1,0 +1,453 @@
+<div class="mx-auto max-w-7xl space-y-10 pb-20">
+
+    <!-- HERO -->
+    <section class="relative overflow-hidden rounded-[32px]
+           border border-white/10
+           bg-gradient-to-br from-slate-950
+           via-cyan-950 to-blue-950
+           p-10 shadow-2xl">
+
+        <div class="absolute inset-0
+             bg-[radial-gradient(circle_at_top_right,rgba(34,211,238,0.18),transparent_30%)]"></div>
+
+        <div class="relative z-10">
+
+            <div class="inline-flex items-center gap-2
+               rounded-full border border-cyan-400/20
+               bg-cyan-400/10 px-4 py-2
+               text-sm font-medium text-cyan-300">
+                <span class="h-2 w-2 rounded-full bg-cyan-400"></span>
+                Intermediate Angular
+            </div>
+
+            <h1 class="mt-6 text-5xl font-black
+               leading-tight text-white
+               md:text-6xl">
+                HttpClient in Angular
+            </h1>
+
+            <p class="mt-6 max-w-4xl text-lg
+               leading-relaxed text-slate-300">
+                HttpClient is Angular’s built-in service used for making
+                HTTP requests to APIs and backend servers.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- INTRO -->
+    <section class="rounded-[28px]
+           border border-white/10
+           bg-white/5 p-8 backdrop-blur-xl">
+
+        <h2 class="text-4xl font-black text-white">
+            What is HttpClient?
+        </h2>
+
+        <p class="mt-6 text-lg leading-9 text-slate-300">
+            HttpClient is provided by
+            <span class="font-semibold text-cyan-300">
+                @angular/common/http
+            </span>
+            and helps Angular applications communicate with backend APIs.
+        </p>
+
+        <div class="mt-8 grid gap-5 md:grid-cols-3">
+
+            <div class="rounded-3xl border
+               border-cyan-400/20
+               bg-cyan-500/[0.04] p-6">
+
+                <span class="material-symbols-outlined text-4xl text-cyan-300">
+                    cloud_download
+                </span>
+
+                <h3 class="mt-4 text-2xl font-bold text-white">
+                    Fetch Data
+                </h3>
+
+                <p class="mt-3 leading-7 text-slate-300">
+                    Retrieve users, products, dashboards, and analytics.
+                </p>
+
+            </div>
+
+            <div class="rounded-3xl border
+               border-pink-400/20
+               bg-pink-500/[0.04] p-6">
+
+                <span class="material-symbols-outlined text-4xl text-pink-300">
+                    send
+                </span>
+
+                <h3 class="mt-4 text-2xl font-bold text-white">
+                    Send Data
+                </h3>
+
+                <p class="mt-3 leading-7 text-slate-300">
+                    Submit forms, login credentials, and create records.
+                </p>
+
+            </div>
+
+            <div class="rounded-3xl border
+               border-yellow-400/20
+               bg-yellow-500/[0.04] p-6">
+
+                <span class="material-symbols-outlined text-4xl text-yellow-300">
+                    sync_alt
+                </span>
+
+                <h3 class="mt-4 text-2xl font-bold text-white">
+                    Update/Delete
+                </h3>
+
+                <p class="mt-3 leading-7 text-slate-300">
+                    Modify and remove records from backend systems.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FEATURES -->
+    <section class="rounded-[28px]
+           border border-white/10
+           bg-slate-950/80 p-8">
+
+        <div class="mb-10">
+
+            <h2 class="text-4xl font-black text-white">
+                Key Features
+            </h2>
+
+        </div>
+
+        <div class="grid gap-6 lg:grid-cols-2">
+
+            @for (feature of features; track feature.title) {
+
+            <div class="rounded-3xl border
+                 border-white/10
+                 bg-white/[0.03] p-8">
+
+                <span class="material-symbols-outlined
+                   text-5xl text-cyan-300">
+                    {{ feature.icon }}
+                </span>
+
+                <h3 class="mt-6 text-3xl font-bold text-white">
+                    {{ feature.title }}
+                </h3>
+
+                <p class="mt-5 leading-8 text-slate-300">
+                    {{ feature.description }}
+                </p>
+
+            </div>
+
+            }
+
+        </div>
+
+    </section>
+
+    <!-- HTTP METHODS -->
+    <section class="rounded-[28px]
+           border border-cyan-400/20
+           bg-cyan-500/[0.04] p-8">
+
+        <div class="mb-10">
+
+            <h2 class="text-4xl font-black text-cyan-300">
+                HTTP Methods
+            </h2>
+
+        </div>
+
+        <div class="grid gap-6 lg:grid-cols-2">
+
+            @for (
+            item of httpMethods;
+            track item.method
+            ) {
+
+            <div class="rounded-3xl border
+                 border-white/10
+                 bg-black/20 p-8">
+
+                <h3 class="mt-2 text-3xl font-bold text-white">
+                    {{ item.method }}
+                </h3>
+
+                <p class="mt-4 leading-8 text-slate-300">
+                    {{ item.description }}
+                </p>
+
+                <pre class="mt-6 overflow-x-auto rounded-2xl
+                   border border-white/10
+                   bg-[#111827] p-5 text-sm
+                   leading-7 text-slate-300"><code>{{ item.example }}</code></pre>
+
+            </div>
+
+            }
+
+        </div>
+
+    </section>
+
+    <!-- LIVE DEMO -->
+    <section class="rounded-[28px]
+           border border-pink-400/20
+           bg-gradient-to-br from-pink-950
+           via-slate-900 to-cyan-950 p-8">
+
+        <div class="mb-10">
+
+            <h2 class="text-4xl font-black text-white">
+                Simulated API Demo
+            </h2>
+
+            <p class="mt-4 text-lg text-slate-300">
+                Example of fetching data from backend APIs.
+            </p>
+
+        </div>
+
+        <button (click)="fetchUsers()" class="rounded-2xl bg-gradient-to-r
+             from-cyan-500 to-pink-500
+             px-6 py-4 font-semibold
+             text-white transition-all
+             hover:scale-[1.03]">
+            Fetch Users
+        </button>
+
+        @if (loading()) {
+
+        <div class="mt-8 rounded-3xl
+               border border-cyan-400/20
+               bg-cyan-500/[0.04] p-6">
+
+            <p class="text-cyan-300">
+                Loading users from API...
+            </p>
+
+        </div>
+
+        }
+
+        <div class="mt-8 grid gap-5 lg:grid-cols-3">
+
+            @for (user of users(); track user.id) {
+
+            <div class="rounded-3xl border
+                 border-white/10
+                 bg-black/20 p-6">
+
+                <div class="flex items-center gap-4">
+
+                    <div class="flex h-14 w-14 items-center
+                     justify-center rounded-2xl
+                     bg-gradient-to-br
+                     from-cyan-500 to-pink-500">
+
+                        <span class="font-bold text-white">
+                            {{ user.name.charAt(0) }}
+                        </span>
+
+                    </div>
+
+                    <div>
+
+                        <h3 class="text-xl font-bold text-white">
+                            {{ user.name }}
+                        </h3>
+
+                        <p class="text-slate-400">
+                            {{ user.role }}
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            }
+
+        </div>
+
+    </section>
+
+    <!-- CODE EXAMPLES -->
+    <section class="grid gap-6 xl:grid-cols-2">
+
+        <!-- PROVIDER -->
+        <div class="rounded-[28px]
+             border border-cyan-400/20
+             bg-cyan-500/[0.04] p-8">
+
+            <h2 class="text-3xl font-bold text-cyan-300">
+                provideHttpClient()
+            </h2>
+
+            <pre class="mt-6 overflow-x-auto rounded-2xl
+               border border-white/10
+               bg-[#111827] p-6 text-sm
+               leading-8 text-slate-300"><code>{{ appConfigCode }}</code></pre>
+
+        </div>
+
+        <!-- SERVICE -->
+        <div class="rounded-[28px]
+             border border-pink-400/20
+             bg-pink-500/[0.04] p-8">
+
+            <h2 class="text-3xl font-bold text-pink-300">
+                Service Example
+            </h2>
+
+            <pre class="mt-6 overflow-x-auto rounded-2xl
+               border border-white/10
+               bg-[#111827] p-6 text-sm
+               leading-8 text-slate-300"><code>{{ serviceCode }}</code></pre>
+
+        </div>
+
+    </section>
+
+    <!-- MORE CODE -->
+    <section class="grid gap-6 xl:grid-cols-3">
+
+        <!-- COMPONENT -->
+        <div class="rounded-[28px]
+             border border-purple-400/20
+             bg-purple-500/[0.04] p-8">
+
+            <h2 class="text-2xl font-bold text-purple-300">
+                Component Usage
+            </h2>
+
+            <pre class="mt-6 overflow-x-auto rounded-2xl
+               border border-white/10
+               bg-[#111827] p-6 text-sm
+               leading-8 text-slate-300"><code>{{ componentCode }}</code></pre>
+
+        </div>
+
+        <!-- POST -->
+        <div class="rounded-[28px]
+             border border-yellow-400/20
+             bg-yellow-500/[0.04] p-8">
+
+            <h2 class="text-2xl font-bold text-yellow-300">
+                POST Request
+            </h2>
+
+            <pre class="mt-6 overflow-x-auto rounded-2xl
+               border border-white/10
+               bg-[#111827] p-6 text-sm
+               leading-8 text-slate-300"><code>{{ postRequestCode }}</code></pre>
+
+        </div>
+
+        <!-- ERROR -->
+        <div class="rounded-[28px]
+             border border-red-400/20
+             bg-red-500/[0.04] p-8">
+
+            <h2 class="text-2xl font-bold text-red-300">
+                Error Handling
+            </h2>
+
+            <pre class="mt-6 overflow-x-auto rounded-2xl
+               border border-white/10
+               bg-[#111827] p-6 text-sm
+               leading-8 text-slate-300"><code>{{ errorHandlingCode }}</code></pre>
+
+        </div>
+
+    </section>
+
+    <!-- BEST PRACTICES -->
+    <section class="rounded-[28px]
+           border border-emerald-400/20
+           bg-emerald-500/[0.04] p-8">
+
+        <div class="mb-10">
+
+            <h2 class="text-4xl font-black text-white">
+                Best Practices
+            </h2>
+
+        </div>
+
+        <div class="grid gap-4 md:grid-cols-2">
+
+            @for (
+            item of bestPractices;
+            track item
+            ) {
+
+            <div class="rounded-2xl border
+                 border-emerald-400/10
+                 bg-black/20 p-5">
+
+                <p class="text-lg text-slate-300">
+                    ✔️ {{ item }}
+                </p>
+
+            </div>
+
+            }
+
+        </div>
+
+    </section>
+
+    <!-- INTERVIEW QUESTIONS -->
+    <section class="rounded-[28px]
+           border border-white/10
+           bg-gradient-to-br from-slate-950
+           via-cyan-950 to-slate-900 p-8">
+
+        <div class="mb-10">
+
+            <h2 class="text-4xl font-black text-white">
+                Interview Questions
+            </h2>
+
+        </div>
+
+        <div class="space-y-6">
+
+            @for (
+            item of interviewQuestions;
+            track item.question
+            ) {
+
+            <div class="rounded-3xl border
+                 border-white/10
+                 bg-white/[0.03] p-6">
+
+                <h3 class="text-xl font-bold text-cyan-300">
+                    {{ item.question }}
+                </h3>
+
+                <p class="mt-4 leading-8 text-slate-300">
+                    {{ item.answer }}
+                </p>
+
+            </div>
+
+            }
+
+        </div>
+
+    </section>
+
+</div>

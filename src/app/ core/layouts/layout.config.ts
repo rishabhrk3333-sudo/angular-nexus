@@ -75,12 +75,69 @@ export const NAV_ITEMS: NavItem[] = [
       },
     ],
   },
-  // {
-  //   label: 'Intermediate',
-  //   icon: 'auto_graph',
-  //   route: '/intermediate',
-  //   color: 'text-cyan-400',
-  // },
+  {
+    label: 'Intermediate',
+    icon: 'auto_graph',
+    route: '/intermediate',
+    color: 'text-cyan-400',
+    children: [
+      {
+        label: 'Change Detection',
+        icon: 'sync_alt',
+        route: '/intermediate/change-detection',
+        color: 'text-orange-300',
+      },
+      {
+        label: 'Signals',
+        icon: 'bolt',
+        route: '/intermediate/signals',
+        color: 'text-pink-300',
+      },
+      {
+        label: 'HTTP Client',
+        icon: 'cloud_download',
+        route: '/intermediate/http-client',
+        color: 'text-sky-300',
+      },
+      {
+        label: 'Guards',
+        icon: 'security',
+        route: '/intermediate/guards',
+        color: 'text-red-300',
+      },
+      {
+        label: 'Resolvers',
+        icon: 'route',
+        route: '/intermediate/resolvers',
+        color: 'text-indigo-300',
+      },
+      {
+        label: 'Interceptors',
+        icon: 'filter_alt',
+        route: '/intermediate/interceptors',
+        color: 'text-amber-300',
+      },
+      // {
+      //   label: 'Content Projection',
+      //   icon: 'flip_to_front',
+      //   route: '/intermediate/content-projection',
+      //   color: 'text-fuchsia-300',
+      // },
+      // {
+      //   label: 'HostBinding & HostListener',
+      //   icon: 'ads_click',
+      //   route: '/intermediate/host-binding',
+      //   color: 'text-rose-300',
+      // },
+      // {
+      //   label: 'Reusable UI Patterns',
+      //   icon: 'dashboard_customize',
+      //   route: '/intermediate/reusable-patterns',
+      //   color: 'text-violet-300',
+      // }
+    ]
+  },
+
   // {
   //   label: 'Advanced',
   //   icon: 'rocket_launch',

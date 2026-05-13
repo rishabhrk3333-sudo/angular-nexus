@@ -18,9 +18,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 })
 export class Sidebar {
   readonly navItems = NAV_ITEMS;
-
   readonly sidebarCollapsed = signal(false);
-
   readonly expandedMenus = signal<string[]>(['Basics']);
 
   toggleSidebar(): void {
@@ -29,13 +27,15 @@ export class Sidebar {
 
   toggleMenu(label: string): void {
     this.expandedMenus.update((menus) => {
+      // If already opened -> close it
       if (menus.includes(label)) {
-        return menus.filter((menu) => menu !== label);
+        return [];
       }
-
-      return [...menus, label];
+      // Open only clicked menu
+      return [label];
     });
   }
+
 
   isExpanded(label: string): boolean {
     return this.expandedMenus().includes(label);

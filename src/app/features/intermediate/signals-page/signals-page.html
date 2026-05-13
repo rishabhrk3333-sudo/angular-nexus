@@ -1,0 +1,434 @@
+<div class="mx-auto max-w-7xl space-y-10 pb-20">
+
+    <!-- HERO -->
+    <section class="relative overflow-hidden rounded-[32px]
+           border border-white/10
+           bg-gradient-to-br from-slate-950
+           via-purple-950 to-pink-950
+           p-10 shadow-2xl">
+
+        <div class="absolute inset-0
+             bg-[radial-gradient(circle_at_top_right,rgba(168,85,247,0.2),transparent_30%)]"></div>
+
+        <div class="relative z-10">
+
+            <div class="inline-flex items-center gap-2
+               rounded-full border border-pink-400/20
+               bg-pink-400/10 px-4 py-2
+               text-sm font-medium text-pink-300">
+                <span class="h-2 w-2 rounded-full bg-pink-400"></span>
+                Angular Signals
+            </div>
+
+            <h1 class="mt-6 text-5xl font-black
+               leading-tight text-white
+               md:text-6xl">
+                Signals in Angular
+            </h1>
+
+            <p class="mt-6 max-w-4xl text-lg
+               leading-relaxed text-slate-300">
+                Signals are Angular’s modern reactive state system.
+                They provide fine-grained reactivity and optimize UI updates automatically.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- WHAT ARE SIGNALS -->
+    <section class="rounded-[28px]
+           border border-white/10
+           bg-white/5 p-8 backdrop-blur-xl">
+
+        <h2 class="text-4xl font-black text-white">
+            What are Signals?
+        </h2>
+
+        <p class="mt-6 text-lg leading-9 text-slate-300">
+            Signals are reactive variables that Angular automatically tracks.
+            When a signal changes, Angular updates only the exact UI parts using that signal.
+        </p>
+
+        <div class="mt-8 rounded-3xl border
+             border-pink-400/20
+             bg-pink-500/[0.04] p-8">
+
+            <h3 class="text-2xl font-bold text-pink-300">
+                YouTube Analogy 🎥
+            </h3>
+
+            <div class="mt-6 grid gap-5 md:grid-cols-3">
+
+                <div class="rounded-2xl bg-black/20 p-5">
+                    <h4 class="font-bold text-cyan-300">
+                        Signal
+                    </h4>
+
+                    <p class="mt-3 text-slate-300">
+                        The YouTube Channel
+                    </p>
+                </div>
+
+                <div class="rounded-2xl bg-black/20 p-5">
+                    <h4 class="font-bold text-pink-300">
+                        Value
+                    </h4>
+
+                    <p class="mt-3 text-slate-300">
+                        The Video Content
+                    </p>
+                </div>
+
+                <div class="rounded-2xl bg-black/20 p-5">
+                    <h4 class="font-bold text-purple-300">
+                        Components
+                    </h4>
+
+                    <p class="mt-3 text-slate-300">
+                        Subscribers receiving updates
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- WHY SIGNALS -->
+    <section class="rounded-[28px]
+           border border-cyan-400/20
+           bg-cyan-500/[0.04] p-8">
+
+        <div class="mb-10">
+
+            <h2 class="text-4xl font-black text-cyan-300">
+                Why Do We Need Signals?
+            </h2>
+
+        </div>
+
+        <pre class="overflow-x-auto rounded-3xl
+             border border-white/10
+             bg-[#111827] p-6 text-sm
+             leading-8 text-slate-300"><code>{{ comparisonCode }}</code></pre>
+
+    </section>
+
+    <!-- BIG THREE -->
+    <section class="rounded-[28px]
+           border border-white/10
+           bg-slate-950/80 p-8">
+
+        <div class="mb-10">
+
+            <h2 class="text-4xl font-black text-white">
+                The Big Three Concepts
+            </h2>
+
+        </div>
+
+        <div class="grid gap-6 lg:grid-cols-3">
+
+            @for (item of concepts; track item.title) {
+
+            <div class="rounded-3xl border
+                 border-white/10
+                 bg-white/[0.03] p-8">
+
+                <h3 class="mt-6 text-3xl font-bold text-white">
+                    {{ item.title }}
+                </h3>
+
+                <p class="mt-5 leading-8 text-slate-300">
+                    {{ item.description }}
+                </p>
+
+            </div>
+
+            }
+
+        </div>
+
+    </section>
+
+    <!-- LIVE DEMO -->
+    <section class="rounded-[28px]
+           border border-purple-400/20
+           bg-gradient-to-br from-purple-950
+           via-slate-900 to-pink-950 p-8">
+
+        <div class="mb-10">
+
+            <h2 class="text-4xl font-black text-white">
+                Live Signals Demo
+            </h2>
+
+        </div>
+
+        <div class="grid gap-8 lg:grid-cols-2">
+
+            <!-- COUNTER -->
+            <div class="rounded-3xl border
+               border-white/10
+               bg-black/20 p-8">
+
+                <div class="text-center">
+
+                    <div class="text-7xl font-black text-pink-300">
+                        {{ count() }}
+                    </div>
+
+                    <p class="mt-4 text-xl text-slate-300">
+                        {{ statusText() }}
+                    </p>
+
+                </div>
+
+                <div class="mt-8 flex flex-wrap
+                 justify-center gap-4">
+
+                    <button (click)="increment()" class="rounded-2xl bg-pink-500
+                   px-5 py-3 font-semibold
+                   text-white transition-all
+                   hover:scale-[1.03]">
+                        Increment
+                    </button>
+
+                    <button (click)="decrement()" class="rounded-2xl bg-cyan-500
+                   px-5 py-3 font-semibold
+                   text-white transition-all
+                   hover:scale-[1.03]">
+                        Decrement
+                    </button>
+
+                    <button (click)="reset()" class="rounded-2xl bg-slate-700
+                   px-5 py-3 font-semibold
+                   text-white transition-all
+                   hover:scale-[1.03]">
+                        Reset
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- EFFECT LOGGER -->
+            <div class="rounded-3xl border
+               border-white/10
+               bg-black/20 p-8">
+
+                <h3 class="text-2xl font-bold text-cyan-300">
+                    effect() Logger
+                </h3>
+
+                <div class="mt-6 max-h-[300px]
+                 overflow-y-auto space-y-3">
+
+                    @for (log of logs(); track log) {
+
+                    <div class="rounded-2xl border
+                     border-cyan-400/10
+                     bg-cyan-500/[0.04] p-4">
+
+                        <p class="text-slate-300">
+                            {{ log }}
+                        </p>
+
+                    </div>
+
+                    }
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- REACTIVE MATH -->
+    <section class="rounded-[28px]
+           border border-pink-400/20
+           bg-pink-500/[0.04] p-8">
+
+        <div class="mb-10">
+
+            <h2 class="text-4xl font-black text-white">
+                Reactive Math Example
+            </h2>
+
+        </div>
+
+        <div class="grid gap-6 lg:grid-cols-3">
+
+            <div class="rounded-3xl bg-black/20 p-8">
+
+                <p class="text-slate-400">x</p>
+
+                <div class="mt-3 text-5xl font-black text-cyan-300">
+                    {{ x() }}
+                </div>
+
+            </div>
+
+            <div class="rounded-3xl bg-black/20 p-8">
+
+                <p class="text-slate-400">y</p>
+
+                <div class="mt-3 text-5xl font-black text-pink-300">
+                    {{ y() }}
+                </div>
+
+            </div>
+
+            <div class="rounded-3xl bg-black/20 p-8">
+
+                <p class="text-slate-400">z = x + y</p>
+
+                <div class="mt-3 text-5xl font-black text-purple-300">
+                    {{ z() }}
+                </div>
+
+            </div>
+
+        </div>
+
+        <button (click)="updateX()" class="mt-8 rounded-2xl bg-gradient-to-r
+             from-pink-500 to-purple-500
+             px-6 py-4 font-semibold text-white
+             transition-all hover:scale-[1.03]">
+            Update x to 10
+        </button>
+
+    </section>
+
+    <!-- BENEFITS -->
+    <section class="rounded-[28px]
+           border border-emerald-400/20
+           bg-emerald-500/[0.04] p-8">
+
+        <div class="mb-10">
+
+            <h2 class="text-4xl font-black text-white">
+                Benefits of Signals
+            </h2>
+
+        </div>
+
+        <div class="grid gap-4 md:grid-cols-2">
+
+            @for (item of benefits; track item) {
+
+            <div class="rounded-2xl border
+                 border-emerald-400/10
+                 bg-black/20 p-5">
+
+                <p class="text-lg text-slate-300">
+                    ✔️ {{ item }}
+                </p>
+
+            </div>
+
+            }
+
+        </div>
+
+    </section>
+
+    <!-- CODE EXAMPLES -->
+    <section class="grid gap-6 xl:grid-cols-3">
+
+        <!-- SIGNAL -->
+        <div class="rounded-[28px]
+             border border-cyan-400/20
+             bg-cyan-500/[0.04] p-8">
+
+            <h2 class="text-2xl font-bold text-cyan-300">
+                signal()
+            </h2>
+
+            <pre class="mt-6 overflow-x-auto rounded-2xl
+               border border-white/10
+               bg-[#111827] p-6 text-sm
+               leading-8 text-slate-300"><code>{{ basicSignalCode }}</code></pre>
+
+        </div>
+
+        <!-- COMPUTED -->
+        <div class="rounded-[28px]
+             border border-pink-400/20
+             bg-pink-500/[0.04] p-8">
+
+            <h2 class="text-2xl font-bold text-pink-300">
+                computed()
+            </h2>
+
+            <pre class="mt-6 overflow-x-auto rounded-2xl
+               border border-white/10
+               bg-[#111827] p-6 text-sm
+               leading-8 text-slate-300"><code>{{ computedCode }}</code></pre>
+
+        </div>
+
+        <!-- EFFECT -->
+        <div class="rounded-[28px]
+             border border-purple-400/20
+             bg-purple-500/[0.04] p-8">
+
+            <h2 class="text-2xl font-bold text-purple-300">
+                effect()
+            </h2>
+
+            <pre class="mt-6 overflow-x-auto rounded-2xl
+               border border-white/10
+               bg-[#111827] p-6 text-sm
+               leading-8 text-slate-300"><code>{{ effectCode }}</code></pre>
+
+        </div>
+
+    </section>
+
+    <!-- INTERVIEW QUESTIONS -->
+    <section class="rounded-[28px]
+           border border-white/10
+           bg-gradient-to-br from-slate-950
+           via-purple-950 to-slate-900 p-8">
+
+        <div class="mb-10">
+
+            <h2 class="text-4xl font-black text-white">
+                Interview Questions
+            </h2>
+
+        </div>
+
+        <div class="space-y-6">
+
+            @for (
+            item of interviewQuestions;
+            track item.question
+            ) {
+
+            <div class="rounded-3xl border
+                 border-white/10
+                 bg-white/[0.03] p-6">
+
+                <h3 class="text-xl font-bold text-pink-300">
+                    {{ item.question }}
+                </h3>
+
+                <p class="mt-4 leading-8 text-slate-300">
+                    {{ item.answer }}
+                </p>
+
+            </div>
+
+            }
+
+        </div>
+
+    </section>
+
+</div>

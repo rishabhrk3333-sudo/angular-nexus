@@ -2,133 +2,99 @@
            bg-black/20 backdrop-blur-xl h-full
            transition-all duration-300" [class.w-72]="!sidebarCollapsed()" [class.w-24]="sidebarCollapsed()">
 
-    <!-- NAVIGATION -->
-<nav class="space-y-3 p-4">
-
-  @for (item of navItems; track item.label) {
-
+  <!-- NAVIGATION -->
+  <nav class="space-y-3 p-4">
+    @for (item of navItems; track item.label) {
     <div>
-
       <!-- EXPANDABLE MENU -->
       @if (hasChildren(item)) {
-
-        <button
-          (click)="toggleMenu(item.label)"
-          class="group flex w-full items-center
+      <button (click)="toggleMenu(item.label)" class="group flex w-full items-center
                  justify-between rounded-2xl
                  px-4 py-4 transition-all duration-300
-                 hover:bg-white/5"
-        >
-
-          <div class="flex items-center gap-4">
-
-            <mat-icon [class]="item.color">
-              {{ item.icon }}
-            </mat-icon>
-
-            @if (!sidebarCollapsed()) {
-              <span class="font-medium">
-                {{ item.label }}
-              </span>
-            }
-
-          </div>
-
+                 hover:bg-white/5">
+        <div class="flex items-center gap-4">
+          <mat-icon [class]="item.color">
+            {{ item.icon }}
+          </mat-icon>
           @if (!sidebarCollapsed()) {
-
-            <mat-icon
-              class="transition-transform duration-300"
-              [class.rotate-180]="isExpanded(item.label)"
-            >
-              expand_more
-            </mat-icon>
-
+          <span class="font-medium">
+            {{ item.label }}
+          </span>
           }
+        </div>
 
-        </button>
+        @if (!sidebarCollapsed()) {
+        <mat-icon class="transition-transform duration-300" [class.rotate-180]="isExpanded(item.label)">
+          expand_more
+        </mat-icon>
+        }
+      </button>
 
-        <!-- CHILDREN -->
-        @if (isExpanded(item.label) && !sidebarCollapsed()) {
-
-          <div
-            class="mt-2 space-y-2 border-l
-                   border-white/10 pl-6"
-          >
-
-            @for (child of item.children; track child.route) {
-
-              <a
-                [routerLink]="child.route"
-                routerLinkActive="bg-white/10 text-white"
-                class="group flex items-center gap-3
+      <!-- CHILDREN -->
+      @if (isExpanded(item.label) && !sidebarCollapsed()) {
+      <div class="mt-2 space-y-2 pl-6">
+        @for (child of item.children; track child.route) {
+        <a [routerLink]="child.route" routerLinkActive="bg-white/10 text-white" class="group flex items-center gap-3
                        rounded-xl px-4 py-3
                        text-slate-300
                        transition-all duration-300
-                       hover:bg-white/5"
-              >
+                       hover:bg-white/5">
 
-                <mat-icon
-                  class="text-[20px]"
-                  [class]="child.color"
-                >
-                  {{ child.icon }}
-                </mat-icon>
+          <mat-icon class="text-[20px]" [class]="child.color">
+            {{ child.icon }}
+          </mat-icon>
 
-                <span class="text-sm">
-                  {{ child.label }}
-                </span>
+          <span class="text-sm">
+            {{ child.label }}
+          </span>
 
-              </a>
-
-            }
-
-          </div>
+        </a>
 
         }
+
+      </div>
+
+      }
 
       }
 
       <!-- NORMAL MENU ITEM -->
       @else {
 
-        <a
-          [routerLink]="item.route"
-          routerLinkActive="bg-white/10 border border-white/10"
-          class="group flex items-center gap-4
+      <a [routerLink]="item.route" routerLinkActive="bg-white/10 border border-white/10" class="group flex items-center gap-4
                  rounded-2xl px-4 py-4
                  transition-all duration-300
-                 hover:bg-white/5"
-        >
+                 hover:bg-white/5">
 
-          <mat-icon [class]="item.color">
-            {{ item.icon }}
-          </mat-icon>
+        <mat-icon [class]="item.color">
+          {{ item.icon }}
+        </mat-icon>
 
-          @if (!sidebarCollapsed()) {
-            <span class="font-medium">
-              {{ item.label }}
-            </span>
-          }
+        @if (!sidebarCollapsed()) {
+        <span class="font-medium">
+          {{ item.label }}
+        </span>
+        }
 
-        </a>
+      </a>
 
       }
 
     </div>
 
-  }
+    }
 
-</nav>
+  </nav>
 
-    <!-- SIDEBAR TOGGLE -->
-    <button mat-icon-button (click)="toggleSidebar()" class="absolute -right-5 top-8
+  <!-- SIDEBAR TOGGLE -->
+  <button mat-icon-button (click)="toggleSidebar()" class="absolute -right-5 top-8
              flex h-10 w-10 items-center
              justify-center rounded-full
              border border-white/10
              bg-[#111827]">
-        <mat-icon>
-            {{ sidebarCollapsed() ? 'chevron_right' : 'chevron_left' }}
-        </mat-icon>
-    </button>
+    <mat-icon>
+      {{ sidebarCollapsed() ? 'chevron_right' : 'chevron_left' }}
+    </mat-icon>
+  </button>
 
 </aside>
