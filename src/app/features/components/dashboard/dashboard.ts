@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 interface LearningCard {
   title: string;
@@ -10,7 +11,7 @@ interface LearningCard {
 
 @Component({
   selector: 'app-dashboard',
-  imports: [CommonModule],
+  imports: [CommonModule, MatTooltipModule],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.css',
 })
@@ -60,7 +61,7 @@ export class Dashboard {
     },
   ];
 
-  redirectTo(pageName:string){
+  redirectTo(pageName: string) {
 
   }
 }

@@ -1,34 +1,35 @@
-<div class="min-h-screen bg-[#0B1120] text-white">
+<div class="flex flex-col h-screen bg-[#0B1120] text-white overflow-hidden">
 
     <!-- HEADER -->
-    <app-header></app-header>
+    <app-header class="flex-shrink-0"></app-header>
 
     <!-- BODY SECTION -->
-    <div class="flex">
+    <div class="flex flex-1 overflow-hidden">
 
         <!-- SIDEBAR -->
-        <app-sidebar></app-sidebar>
+        <app-sidebar class="flex-shrink-0 overflow-y-auto"></app-sidebar>
 
         <!-- MAIN CONTENT -->
-        <div class="relative flex flex-1 flex-col overflow-y-hidden">
-            <main class="flex-1 overflow-hidden pt-6">
-                <div class="pointer-events-none fixed inset-0 -z-10">
+        <div class="relative flex flex-1 flex-col overflow-y-auto">
+            
+            <!-- Background blobs -->
+            <div class="pointer-events-none fixed inset-0 -z-10">
+                <div class="absolute left-0 top-0
+                            h-100 w-100
+                            rounded-full
+                            bg-red-500/20 blur-3xl"></div>
 
-                    <div class="absolute left-0 top-0
-                               h-100 w-100
-                               rounded-full
-                               bg-red-500/20 blur-3xl"></div>
+                <div class="absolute bottom-0 right-0
+                            h-100 w-100
+                            rounded-full
+                            bg-cyan-500/20 blur-3xl"></div>
+            </div>
 
-                    <div class="absolute bottom-0 right-0
-                               h-100 w-100
-                               rounded-full
-                               bg-cyan-500/20 blur-3xl"></div>
-
-                </div>
+            <main class="flex-1 pt-6">
                 <router-outlet></router-outlet>
-                <app-footer></app-footer>
-
             </main>
+
+            <app-footer class="flex-shrink-0"></app-footer>
 
         </div>
 
