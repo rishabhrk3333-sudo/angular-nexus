@@ -1,0 +1,368 @@
+<div class="mx-auto max-w-7xl space-y-10 pb-20">
+
+    <!-- HERO -->
+    <section class="relative overflow-hidden rounded-4xl
+           border border-white/10
+           bg-gradient-to-br from-slate-950
+           via-cyan-950 to-black
+           p-10 shadow-2xl">
+
+        <div class="absolute inset-0
+             bg-[radial-gradient(circle_at_top_right,rgba(34,211,238,0.18),transparent_30%)]"></div>
+
+        <div class="relative z-10">
+
+            <div class="inline-flex items-center gap-2
+               rounded-full border border-cyan-400/20
+               bg-cyan-400/10 px-4 py-2
+               text-sm font-medium text-cyan-300">
+                <span class="h-2 w-2 rounded-full bg-cyan-400"></span>
+                Angular Advanced
+            </div>
+
+            <h1 class="mt-6 text-5xl font-black
+               leading-tight text-white
+               md:text-6xl">
+                Angular Compiler
+            </h1>
+
+            <p class="mt-6 max-w-4xl text-lg
+               leading-relaxed text-slate-300">
+                Learn how Angular compiles applications using
+                JIT (Just-in-Time) and AOT (Ahead-of-Time),
+                how transpiling works, and why compilation
+                strategies are critical for performance.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- WHAT IS COMPILER -->
+    <section class="rounded-[28px]
+           border border-cyan-400/20
+           bg-cyan-500/4 p-8">
+
+        <h2 class="text-4xl font-black text-cyan-300">
+            What is Angular Compiler?
+        </h2>
+
+        <p class="mt-6 text-lg leading-9 text-slate-300">
+            Angular Compiler converts Angular templates,
+            TypeScript, decorators, and metadata into
+            optimized JavaScript code that browsers can run.
+        </p>
+
+        <div class="mt-8 grid gap-6 md:grid-cols-3">
+
+            @for (
+            card of compilerCards;
+            track card.title
+            ) {
+
+            <div class="rounded-3xl border border-white/10
+                 bg-black/20 p-6">
+
+        
+
+                <h3 class="mt-6 text-2xl font-bold text-white">
+                    {{ card.title }}
+                </h3>
+
+                <p class="mt-4 leading-8 text-slate-300">
+                    {{ card.description }}
+                </p>
+
+            </div>
+
+            }
+
+        </div>
+
+    </section>
+
+    <!-- LIVE DEMO -->
+    <section class="rounded-[28px]
+           border border-pink-400/20
+           bg-gradient-to-br from-slate-950
+           via-pink-950 to-black p-8">
+
+        <div class="flex flex-col gap-6
+             lg:flex-row lg:items-center
+             lg:justify-between">
+
+            <div>
+
+                <h2 class="text-4xl font-black text-white">
+                    JIT vs AOT
+                </h2>
+
+                <p class="mt-4 text-slate-300">
+                    Switch between Angular compilation strategies.
+                </p>
+
+            </div>
+
+            <div class="flex gap-4">
+
+                <button (click)="setMode('JIT')" class="rounded-2xl px-6 py-3 font-semibold cursor-pointer
+                 transition-all duration-300" [class]="
+            buildMode() === 'JIT'
+              ? 'bg-yellow-500 text-black'
+              : 'bg-white/10 text-white'
+          ">
+                    JIT
+                </button>
+
+                <button (click)="setMode('AOT')" class="rounded-2xl px-6 py-3 font-semibold cursor-pointer
+                 transition-all duration-300" [class]="
+            buildMode() === 'AOT'
+              ? 'bg-cyan-500 text-black'
+              : 'bg-white/10 text-white'
+          ">
+                    AOT
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- ACTIVE CARD -->
+        <div class="mt-10 rounded-3xl border border-white/10
+             bg-black/20 p-8">
+
+            <h3 class="mt-6 text-4xl font-black" [class]="compilerInfo().color">
+                {{ compilerInfo().title }}
+            </h3>
+
+            <p class="mt-4 max-w-3xl text-lg
+               leading-8 text-slate-300">
+                {{ compilerInfo().description }}
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- COMPARISON TABLE -->
+    <section class="overflow-hidden rounded-[28px]
+           border border-white/10
+           bg-slate-950/70">
+
+        <div class="border-b border-white/10
+             p-8">
+
+            <h2 class="text-4xl font-black text-white">
+                AOT vs JIT Comparison
+            </h2>
+
+        </div>
+
+        <div class="overflow-x-auto">
+
+            <table class="w-full">
+
+                <thead>
+
+                    <tr class="border-b border-white/10
+                   bg-white/[0.03]">
+
+                        <th class="px-6 py-5 text-left
+                     text-sm font-bold uppercase
+                     tracking-widest text-slate-400">
+                            Feature
+                        </th>
+
+                        <th class="px-6 py-5 text-left
+                     text-sm font-bold uppercase
+                     tracking-widest text-yellow-300">
+                            JIT
+                        </th>
+
+                        <th class="px-6 py-5 text-left
+                     text-sm font-bold uppercase
+                     tracking-widest text-cyan-300">
+                            AOT
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    @for (
+                    row of comparisonRows;
+                    track row.feature
+                    ) {
+
+                    <tr class="border-b border-white/5">
+
+                        <td class="px-6 py-5 font-semibold
+                       text-white">
+                            {{ row.feature }}
+                        </td>
+
+                        <td class="px-6 py-5 text-slate-300">
+                            {{ row.jit }}
+                        </td>
+
+                        <td class="px-6 py-5 text-slate-300">
+                            {{ row.aot }}
+                        </td>
+
+                    </tr>
+
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+    <!-- TRANSPILING -->
+    <section class="rounded-[28px]
+           border border-red-400/20
+           bg-red-500/[0.04] p-8">
+
+        <h2 class="text-4xl font-black text-red-300">
+            What is Transpiling?
+        </h2>
+
+        <p class="mt-6 text-lg leading-9 text-slate-300">
+            Browsers understand JavaScript — not TypeScript.
+            Angular uses the TypeScript compiler (tsc)
+            to transpile TypeScript code into JavaScript.
+        </p>
+
+        <div class="mt-8 overflow-hidden rounded-3xl
+             border border-white/10">
+
+            <pre class="overflow-x-auto bg-[#111827]
+               p-6 text-sm leading-8 text-slate-300"><code>{{ transpileCode }}</code></pre>
+
+        </div>
+
+    </section>
+
+    <!-- BUILD FLOW -->
+    <section class="rounded-[28px]
+           border border-indigo-400/20
+           bg-indigo-500/[0.04] p-8">
+
+        <h2 class="text-4xl font-black text-indigo-300">
+            Angular Build Flow
+        </h2>
+
+        <div class="mt-8 overflow-hidden rounded-3xl
+             border border-white/10">
+
+            <pre class="overflow-x-auto bg-[#111827]
+               p-6 text-sm leading-8 text-slate-300"><code>{{ buildFlowCode }}</code></pre>
+
+        </div>
+
+    </section>
+
+    <!-- CODE EXAMPLES -->
+    <section class="grid gap-6 xl:grid-cols-2">
+
+        <div class="rounded-[28px]
+             border border-yellow-400/20
+             bg-yellow-500/[0.04] p-8">
+
+            <h2 class="text-3xl font-bold text-yellow-300">
+                JIT Build
+            </h2>
+
+            <pre class="mt-6 overflow-x-auto rounded-2xl
+               border border-white/10 bg-[#111827]
+               p-6 text-sm leading-8 text-slate-300"><code>{{ jitCode }}</code></pre>
+
+        </div>
+
+        <div class="rounded-[28px]
+             border border-cyan-400/20
+             bg-cyan-500/[0.04] p-8">
+
+            <h2 class="text-3xl font-bold text-cyan-300">
+                AOT Build
+            </h2>
+
+            <pre class="mt-6 overflow-x-auto rounded-2xl
+               border border-white/10 bg-[#111827]
+               p-6 text-sm leading-8 text-slate-300"><code>{{ aotCode }}</code></pre>
+
+        </div>
+
+    </section>
+
+    <!-- IVY -->
+    <section class="rounded-[28px]
+           border border-emerald-400/20
+           bg-emerald-500/[0.04] p-8">
+
+        <h2 class="text-4xl font-black text-emerald-300">
+            Ivy Compiler
+        </h2>
+
+        <p class="mt-6 text-lg leading-9 text-slate-300">
+            Ivy is Angular’s modern rendering and
+            compilation engine. It improves build speed,
+            debugging, tree-shaking, and bundle size.
+        </p>
+
+        <div class="mt-8 overflow-hidden rounded-3xl
+             border border-white/10">
+
+            <pre class="overflow-x-auto bg-[#111827]
+               p-6 text-sm leading-8 text-slate-300"><code>{{ ivyCode }}</code></pre>
+
+        </div>
+
+    </section>
+
+    <!-- QUESTIONS -->
+    <section class="rounded-[28px]
+           border border-white/10
+           bg-gradient-to-br from-slate-950
+           via-cyan-950 to-slate-900 p-8">
+
+        <div class="mb-10">
+
+            <h2 class="text-4xl font-black text-white">
+                Interview Questions
+            </h2>
+
+        </div>
+
+        <div class="space-y-6">
+
+            @for (
+            item of interviewQuestions;
+            track item.question
+            ) {
+
+            <div class="rounded-3xl border border-white/10
+                 bg-white/[0.03] p-6">
+
+                <h3 class="text-xl font-bold text-cyan-300">
+                    {{ item.question }}
+                </h3>
+
+                <p class="mt-4 leading-8 text-slate-300">
+                    {{ item.answer }}
+                </p>
+
+            </div>
+
+            }
+
+        </div>
+
+    </section>
+
+</div>

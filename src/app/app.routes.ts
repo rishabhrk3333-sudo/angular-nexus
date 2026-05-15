@@ -28,6 +28,13 @@ export const routes: Routes = [
                     ),
             },
             {
+                path: 'advanced',
+                loadChildren: () =>
+                    import('./features/advanced/advanced.routes').then(
+                        (m) => m.ADVANCED_ROUTES
+                    )
+            },
+            {
                 path: '',
                 redirectTo: 'dashboard',
                 pathMatch: 'full',

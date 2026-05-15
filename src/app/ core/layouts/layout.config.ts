@@ -2,7 +2,7 @@ export interface NavItem {
   label: string;
   icon: string;
   route?: string;
-  color: string;
+  color?: string;
   children?: NavItem[];
 }
 
@@ -13,7 +13,6 @@ export const NAV_ITEMS: NavItem[] = [
     route: '/dashboard',
     color: 'text-cyan-400',
   },
-
   {
     label: 'Basics',
     icon: 'school',
@@ -137,13 +136,74 @@ export const NAV_ITEMS: NavItem[] = [
       // }
     ]
   },
-
-  // {
-  //   label: 'Advanced',
-  //   icon: 'rocket_launch',
-  //   route: '/advanced',
-  //   color: 'text-red-400',
-  // },
+  {
+    label: 'Advanced',
+    icon: 'rocket_launch',
+    route: '/advanced',
+    color: 'text-red-400',
+    children: [
+      {
+        label: 'Change Detection',
+        route: '/advanced/change-detection',
+        icon: 'sync',
+        color: 'text-blue-400',
+      },
+      // {
+      //   label: 'Standalone APIs',
+      //   route: '/advanced/standalone-apis',
+      //   icon: 'api',
+      //   color: 'text-fuchsia-400',
+      // },
+      // {
+      //   label: 'Zone.js & NgZone',
+      //   route: '/advanced/ng-zone',
+      //   icon: 'blur_on',
+      //   color: 'text-red-400',
+      // },
+      // {
+      //   label: 'Performance Optimization',
+      //   route: '/advanced/performance-optimization',
+      //   icon: 'speed',
+      //   color: 'text-blue-400',
+      // },
+      // {
+      //   label: 'Custom Renderers',
+      //   route: '/advanced/renderer',
+      //   icon: 'brush',
+      //   color: 'text-blue-400',
+      // },
+      // {
+      //   label: 'Micro Frontends',
+      //   route: '/advanced/micro-frontends',
+      //   icon: 'lan',
+      //   color: 'text-blue-400',
+      // },
+      // {
+      //   label: 'SSR & Hydration',
+      //   route: '/advanced/ssr',
+      //   icon: 'dns',
+      //   color: 'text-blue-400',
+      // },
+      // {
+      //   label: 'Web Workers',
+      //   route: '/advanced/web-workers',
+      //   icon: 'memory',
+      //   color: 'text-blue-400',
+      // },
+      {
+        label: 'Angular Compiler',
+        route: '/advanced/compilers',
+        icon: 'terminal',
+        color: 'text-blue-400',
+      },
+      // {
+      //   label: 'Security Best Practices',
+      //   route: '/advanced/security',
+      //   icon: 'shield',
+      //   color: 'text-blue-400',
+      // },
+    ],
+  }
   // {
   //   label: 'Angular Labs',
   //   icon: 'science',

@@ -1,0 +1,346 @@
+<div class="mx-auto max-w-7xl space-y-10 pb-20">
+
+    <!-- HERO -->
+    <section class="relative overflow-hidden rounded-[32px]
+           border border-white/10
+           bg-gradient-to-br from-slate-950
+           via-indigo-950 to-black
+           p-10 shadow-2xl">
+
+        <div class="absolute inset-0
+             bg-[radial-gradient(circle_at_top_right,rgba(99,102,241,0.18),transparent_30%)]"></div>
+
+        <div class="relative z-10">
+
+            <div class="inline-flex items-center gap-2
+               rounded-full border border-indigo-400/20
+               bg-indigo-400/10 px-4 py-2
+               text-sm font-medium text-indigo-300">
+                <span class="h-2 w-2 rounded-full bg-indigo-400"></span>
+                Angular Advanced
+            </div>
+
+            <h1 class="mt-6 text-5xl font-black
+               leading-tight text-white
+               md:text-6xl">
+                NgZone in Angular
+            </h1>
+
+            <p class="mt-6 max-w-4xl text-lg
+               leading-relaxed text-slate-300">
+                Understand how Angular tracks asynchronous operations,
+                automatically triggers change detection,
+                and optimizes performance using NgZone and Zone.js.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- WHAT IS NGZONE -->
+    <section class="rounded-[28px]
+           border border-indigo-400/20
+           bg-indigo-500/[0.04] p-8">
+
+        <h2 class="text-4xl font-black text-indigo-300">
+            What is NgZone?
+        </h2>
+
+        <p class="mt-6 text-lg leading-9 text-slate-300">
+            NgZone is an Angular service that helps Angular detect
+            asynchronous operations like setTimeout,
+            HTTP requests, Promises, DOM events,
+            and automatically trigger Change Detection.
+        </p>
+
+        <div class="mt-10 grid gap-6 md:grid-cols-2">
+
+            @for (
+            feature of zoneFeatures;
+            track feature.title
+            ) {
+
+            <div class="rounded-3xl border border-white/10
+                 bg-black/20 p-6">
+
+                <h3 class="mt-2 text-2xl font-bold text-white">
+                    {{ feature.title }}
+                </h3>
+
+                <p class="mt-4 leading-8 text-slate-300">
+                    {{ feature.description }}
+                </p>
+
+            </div>
+
+            }
+
+        </div>
+
+    </section>
+
+    <!-- LIVE DEMO -->
+    <section class="rounded-[28px]
+           border border-cyan-400/20
+           bg-gradient-to-br from-slate-950
+           via-cyan-950 to-black p-8">
+
+        <div class="flex flex-col gap-8
+             lg:flex-row lg:items-center
+             lg:justify-between">
+
+            <div>
+
+                <h2 class="text-4xl font-black text-white">
+                    Live NgZone Demo
+                </h2>
+
+                <p class="mt-4 max-w-2xl text-slate-300">
+                    Compare execution inside Angular Zone
+                    vs outside Angular Zone.
+                </p>
+
+            </div>
+
+            <div class="rounded-2xl border border-cyan-400/20
+               bg-cyan-400/10 px-5 py-3
+               font-semibold text-cyan-300">
+                {{ currentMode() }}
+            </div>
+
+        </div>
+
+        <!-- COUNTERS -->
+        <div class="mt-10 grid gap-6 md:grid-cols-2">
+
+            <div class="rounded-3xl border border-cyan-400/20
+               bg-cyan-500/[0.06] p-8">
+
+                <div class="flex items-center justify-between">
+
+                    <h3 class="text-2xl font-bold text-cyan-300">
+                        Inside Angular Zone
+                    </h3>
+
+                    <span class="material-symbols-outlined
+                   text-4xl text-cyan-300">
+                        sync
+                    </span>
+
+                </div>
+
+                <div class="mt-8 text-6xl font-black text-white">
+                    {{ angularCounter() }}
+                </div>
+
+                <button (click)="runInsideAngular()" class="mt-8 rounded-2xl
+                 bg-cyan-500 px-6 py-3
+                 font-semibold text-black
+                 transition-all duration-300
+                 hover:scale-105">
+                    Run Inside Zone
+                </button>
+
+            </div>
+
+            <div class="rounded-3xl border border-pink-400/20
+               bg-pink-500/[0.06] p-8">
+
+                <div class="flex items-center justify-between">
+
+                    <h3 class="text-2xl font-bold text-pink-300">
+                        Outside Angular Zone
+                    </h3>
+
+                    <span class="material-symbols-outlined
+                   text-4xl text-pink-300">
+                        bolt
+                    </span>
+
+                </div>
+
+                <div class="mt-8 text-6xl font-black text-white">
+                    {{ outsideCounter() }}
+                </div>
+
+                <button (click)="runOutsideAngular()" class="mt-8 rounded-2xl
+                 bg-pink-500 px-6 py-3
+                 font-semibold text-black
+                 transition-all duration-300
+                 hover:scale-105">
+                    Run Outside Zone
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FLOW -->
+    <section class="rounded-[28px]
+           border border-yellow-400/20
+           bg-yellow-500/[0.04] p-8">
+
+        <h2 class="text-4xl font-black text-yellow-300">
+            How NgZone Works
+        </h2>
+
+        <div class="mt-8 overflow-hidden rounded-3xl
+             border border-white/10">
+
+            <pre class="overflow-x-auto bg-[#111827]
+               p-6 text-sm leading-8 text-slate-300"><code>{{ flowCode }}</code></pre>
+
+        </div>
+
+    </section>
+
+    <!-- CODE EXAMPLES -->
+    <section class="grid gap-6 xl:grid-cols-2">
+
+        <!-- BASIC -->
+        <div class="rounded-[28px]
+             border border-indigo-400/20
+             bg-indigo-500/[0.04] p-8">
+
+            <h2 class="text-3xl font-bold text-indigo-300">
+                Basic NgZone
+            </h2>
+
+            <pre class="mt-6 overflow-x-auto rounded-2xl
+               border border-white/10
+               bg-[#111827] p-6
+               text-sm leading-8 text-slate-300"><code>{{ basicCode }}</code></pre>
+
+        </div>
+
+        <!-- OUTSIDE -->
+        <div class="rounded-[28px]
+             border border-pink-400/20
+             bg-pink-500/[0.04] p-8">
+
+            <h2 class="text-3xl font-bold text-pink-300">
+                runOutsideAngular()
+            </h2>
+
+            <pre class="mt-6 overflow-x-auto rounded-2xl
+               border border-white/10
+               bg-[#111827] p-6
+               text-sm leading-8 text-slate-300"><code>{{ outsideCode }}</code></pre>
+
+        </div>
+
+        <!-- BACK INSIDE -->
+        <div class="rounded-[28px]
+             border border-cyan-400/20
+             bg-cyan-500/[0.04] p-8">
+
+            <h2 class="text-3xl font-bold text-cyan-300">
+                Back Inside Angular
+            </h2>
+
+            <pre class="mt-6 overflow-x-auto rounded-2xl
+               border border-white/10
+               bg-[#111827] p-6
+               text-sm leading-8 text-slate-300"><code>{{ backInsideCode }}</code></pre>
+
+        </div>
+
+        <!-- ZONELESS -->
+        <div class="rounded-[28px]
+             border border-emerald-400/20
+             bg-emerald-500/[0.04] p-8">
+
+            <h2 class="text-3xl font-bold text-emerald-300">
+                Zoneless Angular
+            </h2>
+
+            <pre class="mt-6 overflow-x-auto rounded-2xl
+               border border-white/10
+               bg-[#111827] p-6
+               text-sm leading-8 text-slate-300"><code>{{ zonelessCode }}</code></pre>
+
+        </div>
+
+    </section>
+
+    <!-- LOGS -->
+    <section class="rounded-[28px]
+           border border-white/10
+           bg-slate-950/70 p-8">
+
+        <div class="flex items-center justify-between">
+
+            <h2 class="text-4xl font-black text-white">
+                Runtime Logs
+            </h2>
+
+            <button (click)="clearLogs()" class="rounded-xl border border-red-400/20
+               bg-red-500/10 px-4 py-2
+               text-sm font-semibold text-red-300">
+                Clear
+            </button>
+
+        </div>
+
+        <div class="mt-8 space-y-4">
+
+            @for (
+            log of logs();
+            track $index
+            ) {
+
+            <div class="rounded-2xl border border-white/10
+                 bg-white/[0.03] p-4
+                 text-slate-300">
+                {{ log }}
+            </div>
+
+            }
+
+        </div>
+
+    </section>
+
+    <!-- QUESTIONS -->
+    <section class="rounded-[28px]
+           border border-white/10
+           bg-gradient-to-br from-slate-950
+           via-indigo-950 to-slate-900 p-8">
+
+        <div class="mb-10">
+
+            <h2 class="text-4xl font-black text-white">
+                Interview Questions
+            </h2>
+
+        </div>
+
+        <div class="space-y-6">
+
+            @for (
+            item of interviewQuestions;
+            track item.question
+            ) {
+
+            <div class="rounded-3xl border border-white/10
+                 bg-white/[0.03] p-6">
+
+                <h3 class="text-xl font-bold text-indigo-300">
+                    {{ item.question }}
+                </h3>
+
+                <p class="mt-4 leading-8 text-slate-300">
+                    {{ item.answer }}
+                </p>
+
+            </div>
+
+            }
+
+        </div>
+
+    </section>
+
+</div>

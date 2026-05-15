@@ -1,0 +1,534 @@
+/* <div class="mx-auto max-w-7xl space-y-10 pb-20">
+
+  <!-- HERO -->
+  <section
+    class="relative overflow-hidden rounded-[32px]
+           border border-white/10
+           bg-gradient-to-br from-slate-950
+           via-cyan-950 to-black
+           p-10 shadow-2xl"
+  >
+
+    <div
+      class="absolute inset-0
+             bg-[radial-gradient(circle_at_top_right,rgba(34,211,238,0.15),transparent_30%)]"
+    ></div>
+
+    <div class="relative z-10">
+
+      <div
+        class="inline-flex items-center gap-2
+               rounded-full border border-cyan-400/20
+               bg-cyan-400/10 px-4 py-2
+               text-sm font-medium text-cyan-300"
+      >
+        <span class="h-2 w-2 rounded-full bg-cyan-400"></span>
+        Angular Advanced
+      </div>
+
+      <h1
+        class="mt-6 text-5xl font-black
+               leading-tight text-white
+               md:text-6xl"
+      >
+        SSR & Hydration
+      </h1>
+
+      <p
+        class="mt-6 max-w-4xl text-lg
+               leading-relaxed text-slate-300"
+      >
+        Learn how Angular Server Side Rendering (SSR)
+        improves SEO and performance,
+        and how Hydration makes applications interactive
+        without re-rendering the DOM.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- WHAT IS SSR -->
+  <section
+    class="rounded-[28px]
+           border border-cyan-400/20
+           bg-cyan-500/[0.04] p-8"
+  >
+
+    <h2 class="text-4xl font-black text-cyan-300">
+      What is SSR?
+    </h2>
+
+    <p
+      class="mt-6 text-lg leading-9 text-slate-300"
+    >
+      Server Side Rendering means Angular renders HTML
+      on the server before sending the page to the browser.
+      This improves performance, SEO, and first contentful paint.
+    </p>
+
+    <div class="mt-10 grid gap-6 md:grid-cols-2">
+
+      @for (item of features; track item.title) {
+
+        <div
+          class="rounded-3xl border border-white/10
+                 bg-black/20 p-6"
+        >
+
+          <div
+            class="flex h-16 w-16 items-center
+                   justify-center rounded-2xl
+                   bg-gradient-to-br"
+            [ngClass]="item.color"
+          >
+
+            <span
+              class="material-symbols-outlined
+                     text-3xl text-white"
+            >
+              {{ item.icon }}
+            </span>
+
+          </div>
+
+          <h3
+            class="mt-6 text-2xl font-bold text-white"
+          >
+            {{ item.title }}
+          </h3>
+
+          <p
+            class="mt-4 leading-8 text-slate-300"
+          >
+            {{ item.description }}
+          </p>
+
+        </div>
+
+      }
+
+    </div>
+
+  </section>
+
+  <!-- CSR vs SSR -->
+  <section
+    class="rounded-[28px]
+           border border-indigo-400/20
+           bg-gradient-to-br from-slate-950
+           via-indigo-950 to-black
+           p-8"
+  >
+
+    <div
+      class="flex flex-col gap-8
+             lg:flex-row lg:items-center
+             lg:justify-between"
+    >
+
+      <div>
+
+        <h2 class="text-4xl font-black text-white">
+          CSR vs SSR
+        </h2>
+
+        <p class="mt-4 max-w-2xl text-slate-300">
+          Compare Client Side Rendering and
+          Server Side Rendering.
+        </p>
+
+      </div>
+
+      <div class="flex gap-4">
+
+        <button
+          (click)="switchMode('CSR')"
+          class="rounded-2xl px-6 py-3 font-semibold transition-all"
+          [ngClass]="
+            renderMode() === 'CSR'
+              ? 'bg-pink-500 text-black'
+              : 'bg-white/10 text-white'
+          "
+        >
+          CSR
+        </button>
+
+        <button
+          (click)="switchMode('SSR')"
+          class="rounded-2xl px-6 py-3 font-semibold transition-all"
+          [ngClass]="
+            renderMode() === 'SSR'
+              ? 'bg-cyan-500 text-black'
+              : 'bg-white/10 text-white'
+          "
+        >
+          SSR
+        </button>
+
+      </div>
+
+    </div>
+
+    <!-- ACTIVE CARD -->
+    <div
+      class="mt-10 rounded-3xl border border-white/10
+             bg-black/20 p-8"
+    >
+
+      <div
+        class="flex h-20 w-20 items-center
+               justify-center rounded-3xl
+               bg-gradient-to-br"
+        [ngClass]="activeRenderInfo().bg"
+      >
+
+        <span
+          class="material-symbols-outlined
+                 text-4xl text-white"
+        >
+          public
+        </span>
+
+      </div>
+
+      <h3
+        class="mt-6 text-4xl font-black"
+        [ngClass]="activeRenderInfo().color"
+      >
+        {{ activeRenderInfo().title }}
+      </h3>
+
+      <p
+        class="mt-4 max-w-3xl text-lg
+               leading-8 text-slate-300"
+      >
+        {{ activeRenderInfo().description }}
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- HYDRATION -->
+  <section
+    class="rounded-[28px]
+           border border-purple-400/20
+           bg-purple-500/[0.04] p-8"
+  >
+
+    <div
+      class="flex flex-col gap-6
+             lg:flex-row lg:items-center
+             lg:justify-between"
+    >
+
+      <div>
+
+        <h2
+          class="text-4xl font-black text-purple-300"
+        >
+          Hydration
+        </h2>
+
+        <p
+          class="mt-4 max-w-3xl text-slate-300"
+        >
+          Hydration attaches Angular logic and events
+          to existing server-rendered HTML
+          instead of rebuilding the DOM again.
+        </p>
+
+      </div>
+
+      <button
+        (click)="toggleHydration()"
+        class="rounded-2xl px-6 py-3 font-semibold transition-all"
+        [ngClass]="
+          hydrationEnabled()
+            ? 'bg-emerald-500 text-black'
+            : 'bg-red-500 text-white'
+        "
+      >
+        {{
+          hydrationEnabled()
+            ? 'Hydration Enabled'
+            : 'Hydration Disabled'
+        }}
+      </button>
+
+    </div>
+
+    <div
+      class="mt-10 overflow-hidden rounded-3xl
+             border border-white/10"
+    >
+
+      <pre
+        class="overflow-x-auto bg-[#111827]
+               p-6 text-sm leading-8 text-slate-300"
+      ><code>{{ hydrationFlowCode }}</code></pre>
+
+    </div>
+
+  </section>
+
+  <!-- COMPARISON TABLE -->
+  <section
+    class="overflow-hidden rounded-[28px]
+           border border-white/10
+           bg-slate-950/70"
+  >
+
+    <div
+      class="border-b border-white/10 p-8"
+    >
+
+      <h2
+        class="text-4xl font-black text-white"
+      >
+        CSR vs SSR Comparison
+      </h2>
+
+    </div>
+
+    <div class="overflow-x-auto">
+
+      <table class="w-full">
+
+        <thead>
+
+          <tr
+            class="border-b border-white/10
+                   bg-white/[0.03]"
+          >
+
+            <th
+              class="px-6 py-5 text-left
+                     text-sm font-bold uppercase
+                     tracking-widest text-slate-400"
+            >
+              Feature
+            </th>
+
+            <th
+              class="px-6 py-5 text-left
+                     text-sm font-bold uppercase
+                     tracking-widest text-pink-300"
+            >
+              CSR
+            </th>
+
+            <th
+              class="px-6 py-5 text-left
+                     text-sm font-bold uppercase
+                     tracking-widest text-cyan-300"
+            >
+              SSR
+            </th>
+
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          @for (row of comparisonRows; track row.feature) {
+
+            <tr
+              class="border-b border-white/5"
+            >
+
+              <td
+                class="px-6 py-5 font-semibold text-white"
+              >
+                {{ row.feature }}
+              </td>
+
+              <td
+                class="px-6 py-5 text-slate-300"
+              >
+                {{ row.csr }}
+              </td>
+
+              <td
+                class="px-6 py-5 text-slate-300"
+              >
+                {{ row.ssr }}
+              </td>
+
+            </tr>
+
+          }
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </section>
+
+  <!-- FLOW -->
+  <section
+    class="rounded-[28px]
+           border border-yellow-400/20
+           bg-yellow-500/[0.04] p-8"
+  >
+
+    <h2
+      class="text-4xl font-black text-yellow-300"
+    >
+      SSR Rendering Flow
+    </h2>
+
+    <div
+      class="mt-8 overflow-hidden rounded-3xl
+             border border-white/10"
+    >
+
+      <pre
+        class="overflow-x-auto bg-[#111827]
+               p-6 text-sm leading-8 text-slate-300"
+      ><code>{{ flowCode }}</code></pre>
+
+    </div>
+
+  </section>
+
+  <!-- CODE EXAMPLES -->
+  <section
+    class="grid gap-6 xl:grid-cols-2"
+  >
+
+    <div
+      class="rounded-[28px]
+             border border-cyan-400/20
+             bg-cyan-500/[0.04] p-8"
+    >
+
+      <h2
+        class="text-3xl font-bold text-cyan-300"
+      >
+        Install SSR
+      </h2>
+
+      <pre
+        class="mt-6 overflow-x-auto rounded-2xl
+               border border-white/10 bg-[#111827]
+               p-6 text-sm leading-8 text-slate-300"
+      ><code>{{ installCode }}</code></pre>
+
+    </div>
+
+    <div
+      class="rounded-[28px]
+             border border-purple-400/20
+             bg-purple-500/[0.04] p-8"
+    >
+
+      <h2
+        class="text-3xl font-bold text-purple-300"
+      >
+        Enable Hydration
+      </h2>
+
+      <pre
+        class="mt-6 overflow-x-auto rounded-2xl
+               border border-white/10 bg-[#111827]
+               p-6 text-sm leading-8 text-slate-300"
+      ><code>{{ hydrationCode }}</code></pre>
+
+    </div>
+
+    <div
+      class="rounded-[28px]
+             border border-pink-400/20
+             bg-pink-500/[0.04] p-8"
+    >
+
+      <h2
+        class="text-3xl font-bold text-pink-300"
+      >
+        Server Rendering
+      </h2>
+
+      <pre
+        class="mt-6 overflow-x-auto rounded-2xl
+               border border-white/10 bg-[#111827]
+               p-6 text-sm leading-8 text-slate-300"
+      ><code>{{ serverCode }}</code></pre>
+
+    </div>
+
+    <div
+      class="rounded-[28px]
+             border border-green-400/20
+             bg-green-500/[0.04] p-8"
+    >
+
+      <h2
+        class="text-3xl font-bold text-green-300"
+      >
+        Routes Example
+      </h2>
+
+      <pre
+        class="mt-6 overflow-x-auto rounded-2xl
+               border border-white/10 bg-[#111827]
+               p-6 text-sm leading-8 text-slate-300"
+      ><code>{{ routeCode }}</code></pre>
+
+    </div>
+
+  </section>
+
+  <!-- INTERVIEW QUESTIONS -->
+  <section
+    class="rounded-[28px]
+           border border-white/10
+           bg-gradient-to-br from-slate-950
+           via-cyan-950 to-slate-900
+           p-8"
+  >
+
+    <div class="mb-10">
+
+      <h2
+        class="text-4xl font-black text-white"
+      >
+        Interview Questions
+      </h2>
+
+    </div>
+
+    <div class="space-y-6">
+
+      @for (item of interviewQuestions; track item.question) {
+
+        <div
+          class="rounded-3xl border border-white/10
+                 bg-white/[0.03] p-6"
+        >
+
+          <h3
+            class="text-xl font-bold text-cyan-300"
+          >
+            {{ item.question }}
+          </h3>
+
+          <p
+            class="mt-4 leading-8 text-slate-300"
+          >
+            {{ item.answer }}
+          </p>
+
+        </div>
+
+      }
+
+    </div>
+
+  </section>
+
+</div> */
