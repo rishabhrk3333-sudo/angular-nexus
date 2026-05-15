@@ -1,9 +1,10 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { MobileWarning } from './shared/mobile-warning/mobile-warning';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet,MobileWarning],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
