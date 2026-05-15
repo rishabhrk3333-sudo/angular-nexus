@@ -143,17 +143,11 @@ export const NAV_ITEMS: NavItem[] = [
     color: 'text-red-400',
     children: [
       {
-        label: 'Change Detection',
-        route: '/advanced/change-detection',
-        icon: 'sync',
-        color: 'text-blue-400',
+        label: 'Standalone APIs',
+        route: '/advanced/standalone-apis',
+        icon: 'api',
+        color: 'text-fuchsia-400',
       },
-      // {
-      //   label: 'Standalone APIs',
-      //   route: '/advanced/standalone-apis',
-      //   icon: 'api',
-      //   color: 'text-fuchsia-400',
-      // },
       // {
       //   label: 'Zone.js & NgZone',
       //   route: '/advanced/ng-zone',

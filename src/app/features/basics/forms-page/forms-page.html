@@ -66,7 +66,7 @@
 
             @for (tab of tabs; track tab.id) {
 
-            <button (click)="activeTab.set(tab.id)" class="rounded-2xl px-6 py-4
+            <button (click)="activeTab.set(tab.id)" class="rounded-2xl px-6 py-4 cursor-pointer
                  text-sm font-semibold
                  transition-all duration-300" [class.bg-violet-500]="activeTab() === tab.id"
                 [class.text-white]="activeTab() === tab.id" [class.bg-white/5]="activeTab() !== tab.id"
@@ -161,7 +161,7 @@
 
             </div>
 
-            <button type="submit" [disabled]="templateForm.invalid" class="rounded-2xl bg-emerald-500
+            <button type="submit" [disabled]="templateForm.invalid" class="rounded-2xl bg-emerald-500 cursor-pointer
                  px-6 py-4 font-semibold
                  text-white transition-all
                  hover:scale-[1.02]
@@ -352,7 +352,7 @@
                         Dynamic Questions
                     </h3>
 
-                    <button type="button" (click)="addQuestion()" class="rounded-xl bg-cyan-500
+                    <button type="button" (click)="addQuestion()" class="rounded-xl bg-cyan-500 cursor-pointer
                      px-5 py-3 text-sm
                      font-semibold text-white">
                         Add Question
@@ -374,7 +374,7 @@
                          bg-black/20 px-5 py-4
                          text-white" />
 
-                        <button type="button" (click)="removeQuestion($index)" class="rounded-2xl
+                        <button type="button" (click)="removeQuestion($index)" class="rounded-2xl cursor-pointer
                          bg-red-500 px-5
                          text-white">
                             Remove
@@ -392,7 +392,7 @@
             <button type="submit" [disabled]="
             registrationForm.invalid ||
             !registrationForm.dirty
-          " class="rounded-2xl bg-cyan-500
+          " class="rounded-2xl bg-cyan-500 cursor-pointer
                  px-6 py-4 font-semibold
                  text-white transition-all
                  hover:scale-[1.02]

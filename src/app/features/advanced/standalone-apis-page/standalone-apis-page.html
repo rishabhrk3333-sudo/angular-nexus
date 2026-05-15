@@ -1,1 +1,257 @@
-<p>standalone-apis-page works!</p>
+<div class="mx-auto max-w-7xl space-y-10 pb-20">
+
+    <!-- HERO -->
+    <section class="relative overflow-hidden rounded-[32px]
+           border border-white/10
+           bg-gradient-to-br from-slate-950
+           via-cyan-950 to-black
+           p-10 shadow-2xl">
+
+        <div class="absolute inset-0
+             bg-[radial-gradient(circle_at_top_right,rgba(34,211,238,0.18),transparent_30%)]"></div>
+
+        <div class="relative z-10">
+
+            <div class="inline-flex items-center gap-2
+               rounded-full border border-cyan-400/20
+               bg-cyan-400/10 px-4 py-2
+               text-sm font-medium text-cyan-300">
+                Angular Advanced
+            </div>
+
+            <h1 class="mt-6 text-5xl font-black
+               leading-tight text-white md:text-6xl">
+                Standalone APIs
+            </h1>
+
+            <p class="mt-6 max-w-4xl text-lg
+               leading-relaxed text-slate-300">
+                Standalone APIs are one of the biggest modern Angular improvements.
+                They remove the dependency on NgModules and make Angular applications
+                simpler, cleaner, and more scalable.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- WHAT ARE STANDALONE APIS -->
+    <section class="rounded-[28px]
+           border border-cyan-400/20
+           bg-cyan-500/[0.04] p-8">
+
+        <h2 class="text-4xl font-black text-cyan-300">
+            What are Standalone APIs?
+        </h2>
+
+        <p class="mt-6 text-lg leading-9 text-slate-300">
+            Standalone APIs allow components, directives, and pipes
+            to work independently without needing NgModules.
+            Angular introduced this feature to simplify project architecture
+            and improve developer productivity.
+        </p>
+
+        <div class="mt-10 grid gap-6 md:grid-cols-2">
+
+            @for (item of standaloneFeatures; track item.title) {
+
+            <div class="rounded-3xl border border-white/10
+                 bg-black/20 p-6">
+
+
+                <h3 class="mt-6 text-2xl font-bold text-white">
+                    {{ item.title }}
+                </h3>
+
+                <p class="mt-4 leading-8 text-slate-300">
+                    {{ item.description }}
+                </p>
+
+            </div>
+
+            }
+
+        </div>
+
+    </section>
+
+    <!-- TABS -->
+    <section class="rounded-[28px]
+           border border-white/10
+           bg-slate-950/70 p-8">
+
+        <div class="flex flex-wrap gap-4">
+
+            <button (click)="setTab('overview')" class="cursor-pointer rounded-2xl px-6 py-3 font-semibold transition-all" [ngClass]="
+          selectedTab() === 'overview'
+            ? 'bg-cyan-500 text-black'
+            : 'bg-white/10 text-white'
+        ">
+                Overview
+            </button>
+
+            <button (click)="setTab('benefits')" class="cursor-pointer rounded-2xl px-6 py-3 font-semibold transition-all" [ngClass]="
+          selectedTab() === 'benefits'
+            ? 'bg-purple-500 text-black'
+            : 'bg-white/10 text-white'
+        ">
+                Benefits
+            </button>
+
+            <button (click)="setTab('examples')" class="cursor-pointer rounded-2xl px-6 py-3 font-semibold transition-all" [ngClass]="
+          selectedTab() === 'examples'
+            ? 'bg-pink-500 text-black'
+            : 'bg-white/10 text-white'
+        ">
+                Examples
+            </button>
+
+        </div>
+
+        <!-- OVERVIEW -->
+        @if (selectedTab() === 'overview') {
+
+        <div class="mt-10">
+
+            <div class="rounded-3xl border border-cyan-400/20
+                 bg-cyan-500/[0.04] p-8">
+
+                <h3 class="text-3xl font-bold text-cyan-300">
+                    Why Angular Introduced Standalone APIs?
+                </h3>
+
+                <ul class="mt-6 space-y-4 text-slate-300">
+                    <li>✔️ Reduce boilerplate code</li>
+                    <li>✔️ Remove unnecessary NgModules</li>
+                    <li>✔️ Simplify Angular architecture</li>
+                    <li>✔️ Improve lazy loading</li>
+                    <li>✔️ Better developer experience</li>
+                    <li>✔️ Easier onboarding for beginners</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+        }
+
+        <!-- BENEFITS -->
+        @if (selectedTab() === 'benefits') {
+
+        <div class="mt-10 grid gap-6 md:grid-cols-2">
+
+            <div class="rounded-3xl border border-emerald-400/20
+                 bg-emerald-500/[0.04] p-8">
+
+                <h3 class="text-2xl font-bold text-emerald-300">
+                    Advantages
+                </h3>
+
+                <ul class="mt-6 space-y-4 text-slate-300">
+                    <li>✔️ Cleaner project structure</li>
+                    <li>✔️ Better performance optimization</li>
+                    <li>✔️ Easier route-based lazy loading</li>
+                    <li>✔️ Less Angular boilerplate</li>
+                    <li>✔️ Modern Angular architecture</li>
+                </ul>
+
+            </div>
+
+            <div class="rounded-3xl border border-red-400/20
+                 bg-red-500/[0.04] p-8">
+
+                <h3 class="text-2xl font-bold text-red-300">
+                    Important Notes
+                </h3>
+
+                <ul class="mt-6 space-y-4 text-slate-300">
+                    <li>⚡ NgModules still work</li>
+                    <li>⚡ Standalone is the modern approach</li>
+                    <li>⚡ Recommended for new Angular apps</li>
+                    <li>⚡ Works perfectly with Signals</li>
+                    <li>⚡ Easier SSR integration</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+        }
+
+        <!-- EXAMPLES -->
+        @if (selectedTab() === 'examples') {
+
+        <div class="mt-10 grid gap-6 xl:grid-cols-2">
+
+            <div class="rounded-3xl border border-cyan-400/20
+                 bg-cyan-500/[0.04] p-8">
+
+                <h3 class="text-2xl font-bold text-cyan-300">
+                    Bootstrap Application
+                </h3>
+
+                <pre class="mt-6 overflow-x-auto rounded-2xl
+                   border border-white/10
+                   bg-[#111827] p-6 text-sm
+                   leading-8 text-slate-300"><code>{{ bootstrapCode }}</code></pre>
+
+            </div>
+
+            <div class="rounded-3xl border border-purple-400/20
+                 bg-purple-500/[0.04] p-8">
+
+                <h3 class="text-2xl font-bold text-purple-300">
+                    Standalone Component
+                </h3>
+
+                <pre class="mt-6 overflow-x-auto rounded-2xl
+                   border border-white/10
+                   bg-[#111827] p-6 text-sm
+                   leading-8 text-slate-300"><code>{{ standaloneComponentCode }}</code></pre>
+
+            </div>
+
+        </div>
+
+        }
+
+    </section>
+
+    <!-- INTERVIEW QUESTIONS -->
+    <section class="rounded-[28px]
+           border border-white/10
+           bg-gradient-to-br from-slate-950
+           via-cyan-950 to-slate-900 p-8">
+
+        <div class="mb-10">
+
+            <h2 class="text-4xl font-black text-white">
+                Interview Questions
+            </h2>
+
+        </div>
+
+        <div class="space-y-6">
+
+            @for (item of interviewQuestions; track item.question) {
+
+            <div class="rounded-3xl border border-white/10
+                 bg-white/[0.03] p-6">
+
+                <h3 class="text-xl font-bold text-cyan-300">
+                    {{ item.question }}
+                </h3>
+
+                <p class="mt-4 leading-8 text-slate-300">
+                    {{ item.answer }}
+                </p>
+
+            </div>
+
+            }
+
+        </div>
+
+    </section>
+
+</div>

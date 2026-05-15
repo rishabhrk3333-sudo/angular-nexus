@@ -38,30 +38,41 @@ export class Dashboard {
       icon: '🔥',
       color: 'from-red-500 to-orange-500',
     },
-    {
-      title: 'Angular Labs',
-      description:
-        'Interactive playgrounds and visual learning experiments.',
-      icon: '🧪',
-      color: 'from-emerald-500 to-teal-500',
-    },
-    {
-      title: 'Angular Future',
-      description:
-        'Upcoming Angular features, roadmap and experimental APIs.',
-      icon: '🔮',
-      color: 'from-violet-500 to-fuchsia-500',
-    },
-    {
-      title: 'Angular Material',
-      description:
-        'Enterprise-grade UI components and modern design systems.',
-      icon: '🎨',
-      color: 'from-pink-500 to-rose-500',
-    },
+    // {
+    //   title: 'Angular Labs',
+    //   description:
+    //     'Interactive playgrounds and visual learning experiments.',
+    //   icon: '🧪',
+    //   color: 'from-emerald-500 to-teal-500',
+    // },
+    // {
+    //   title: 'Angular Future',
+    //   description:
+    //     'Upcoming Angular features, roadmap and experimental APIs.',
+    //   icon: '🔮',
+    //   color: 'from-violet-500 to-fuchsia-500',
+    // },
+    // {
+    //   title: 'Angular Material',
+    //   description:
+    //     'Enterprise-grade UI components and modern design systems.',
+    //   icon: '🎨',
+    //   color: 'from-pink-500 to-rose-500',
+    // },
   ];
 
   redirectTo(pageName: string) {
-
+    const routes: { [key: string]: string } = {
+      'Angular Basics': '/basics/components',
+      'Intermediate Angular': '/intermediate/change-detection',
+      'Advanced Angular': '/advanced',
+      'Angular Labs': '/labs',
+      'Angular Future': '/future',
+      'Angular Material': '/material',
+    };
+    const route = routes[pageName];
+    if (route) {
+      window.location.href = route;
+    } 
   }
 }

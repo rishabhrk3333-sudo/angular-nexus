@@ -9,13 +9,6 @@ export const ADVANCED_ROUTES: Routes = [
             ),
     },
     {
-        path: 'change-detection',
-        loadComponent: () =>
-            import('./change-detection-page/change-detection-page').then(
-                (m) => m.ChangeDetectionPage
-            ),
-    },
-    {
         path: 'renderer',
         loadComponent: () =>
             import('./custom-renderers-page/custom-renderers-page').then(

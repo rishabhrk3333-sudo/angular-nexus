@@ -28,7 +28,7 @@ export class Footer {
     {
       name: 'LinkedIn',
       icon: 'work',
-      url: 'https://www.linkedin.com/in/rishabh-kumar-05b63b190/',
+      url: 'https://www.linkedin.com/in/rishabh-kumar-05b63b190',
     },
   ];
 }
